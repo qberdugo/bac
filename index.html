@@ -33,7 +33,7 @@ MATIERES.forEach(matiere => {
       <div class="boutons">
         <a class="btn btn-cours" href="${ch.dossier}/cours.html">▶️ Cours interactif</a>
         <a class="btn btn-fiche" href="${ch.dossier}/fiche.html">📄 Fiche de révision</a>
-        <a class="btn btn-pdf" href="${ch.dossier}/fiche.pdf" download>⬇️ PDF</a>
+        <a class="btn btn-pdf" href="${ch.dossier}/${ch.pdf}" download>⬇️ PDF</a>
       </div>
     </div>`).join("");
   section.innerHTML = chips + cartes;
