@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Fiche de révision — Factorisation et signe d'un trinôme</title>
+<style>
+  @page{ size:A4; margin:0; }
+  :root{
+    --bleu:#4361ee; --violet:#7209b7; --rose:#f72585; --vert:#2ec4b6;
+    --orange:#ff9f1c; --rouge:#e63946; --magenta:#b5179e; --fond:#f6f7fb; --encre:#22223b;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--encre);background:var(--fond);width:210mm;min-height:297mm;}
+  .page{width:210mm;min-height:297mm;background:var(--fond);}
+  .entete{background:linear-gradient(135deg,#F2A900,#FF6F3C 55%,#f72585);color:#fff;padding:20px 34px 22px 15mm;}
+  .entete h1{margin:0 0 5px;font-size:29px;letter-spacing:.3px;}
+  .entete p{margin:0;font-size:15px;}
+  .contenu{padding:7mm 10mm 5mm;}
+  .grille{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  .grille.pleine{grid-template-columns:1fr;}
+  .boite{background:#fff;border-radius:9px;overflow:hidden;border:1px solid #e6e6f0;margin-bottom:9px;}
+  .titre-boite{color:#fff;font-weight:700;font-size:14.5px;padding:7px 16px;letter-spacing:.2px;}
+  .corps-boite{padding:11px 16px 13px;font-size:13.5px;line-height:1.45;}
+  .t-bleu{background:linear-gradient(90deg,#4361ee,#3651d4);}
+  .t-vert{background:linear-gradient(90deg,#2ec4b6,#1a9e92);}
+  .t-teal{background:linear-gradient(90deg,#0a9396,#087478);}
+  .t-rose{background:linear-gradient(90deg,#f72585,#b5179e);}
+  .t-violet{background:linear-gradient(90deg,#7209b7,#560a86);}
+  .t-rouge{background:linear-gradient(90deg,#e63946,#c1121f);}
+  .t-orouge{background:linear-gradient(90deg,#ff9f1c,#e63946);}
+  .t-encre{background:linear-gradient(90deg,#22223b,#3a3a5c);}
+  .formule-grande{font-family:Georgia,"Times New Roman",serif;font-size:21px;font-weight:700;text-align:center;margin:6px 0;}
+  .verif{color:var(--rouge);font-weight:700;}
+  .puce{margin:0 0 7px;padding-left:14px;}
+  .pied{text-align:center;font-size:12.5px;font-style:italic;color:#7a7a94;margin-top:3px;}
+  em{font-style:italic;}
+  /* mini tableaux de signes */
+  .duo-tab{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;}
+  .mini-cadre{background:#f8f9fe;border-radius:8px;padding:8px 10px;text-align:center;}
+  .mini-cadre .titre{font-weight:700;font-size:13px;margin-bottom:5px;}
+  table.mini-tab{width:100%;border-collapse:collapse;font-family:Georgia,"Times New Roman",serif;font-size:14px;}
+  table.mini-tab th, table.mini-tab td{border:1.3px solid var(--encre);padding:2px 4px;text-align:center;}
+  table.mini-tab th{font-style:italic;width:26px;background:#f4f1fb;}
+  table.mini-tab .p{color:#1a9e92;font-weight:800;}
+  table.mini-tab .m{color:#e63946;font-weight:800;}
+  table.mini-tab .z{color:#3a0ca3;font-weight:700;}
+  /* strip "les 3 écritures" */
+  .trois-ecritures{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;}
+  .ecriture{background:#f8f9fe;border-radius:8px;padding:8px 10px;text-align:center;}
+  .ecriture .f{font-family:Georgia,serif;font-weight:700;font-size:14.5px;}
+  .ecriture .quoi{font-size:12.5px;color:#4a4a68;margin-top:2px;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="entete">
+    <h1>FICHE DE RÉVISION</h1>
+    <p>Équations du second degré — partie 3 : Factorisation et signe d'un trinôme&nbsp;&nbsp;•&nbsp;&nbsp;ax² + bx + c&nbsp;&nbsp;(a ≠ 0)</p>
+  </div>
+
+  <div class="contenu">
+
+  <div class="grille">
+    <div class="boite">
+      <div class="titre-boite t-bleu">1. LA FORME FACTORISÉE</div>
+      <div class="corps-boite">
+        <div class="formule-grande" style="color:var(--bleu)">y = a(x − x₁)(x − x₂)</div>
+        Les solutions <b>x₁ et x₂ se lisent directement</b>.<br>
+        ⚠️ (x − 2) → racine <b>+2</b> ; (x + 3) → racine <b>−3</b>.<br>
+        <em>N'existe que si Δ ≥ 0 (la courbe touche l'axe).</em>
+      </div>
+    </div>
+
+    <div class="boite">
+      <div class="titre-boite t-vert">2. LA RÈGLE DU PRODUIT NUL</div>
+      <div class="corps-boite">
+        Un produit est nul <b>si et seulement si l'un de ses facteurs est nul</b>.<br>
+        (x − 2)(x + 5) = 0 → x − 2 = 0 <b>ou</b> x + 5 = 0<br>
+        → <b>x = 2 ou x = −5</b>. <em>Pas de Δ, pas de formule !</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="grille">
+    <div class="boite">
+      <div class="titre-boite t-teal">3. FACTORISER : LA MÉTHODE</div>
+      <div class="corps-boite">
+        ① Racines x₁, x₂ avec Δ (partie 2)&nbsp;&nbsp;② Écrire <b>a(x − x₁)(x − x₂)</b> — sans oublier le <b>a</b> !<br>
+        <b>Exemple :</b> 2x² − 2x − 12 : Δ = 4 + 96 = 100,<br>
+        x₁ = −2, x₂ = 3 → <b style="color:#0a9396">2(x + 2)(x − 3)</b><br>
+        <span class="verif">Vérif : développe, tu retombes dessus ✓</span>
+      </div>
+    </div>
+
+    <div class="boite">
+      <div class="titre-boite t-violet">4. ET SANS DEUX RACINES ?</div>
+      <div class="corps-boite">
+        <b>Δ = 0 :</b> racine double → factorisation <b>a(x − x₀)²</b>.<br>
+        Le signe est celui de a partout (0 seulement en x₀).<br>
+        <b>Δ &lt; 0 :</b> pas de racines → <b>pas de factorisation</b>,<br>
+        et le trinôme est du <b>signe de a partout</b>. Jamais de changement de signe !
+      </div>
+    </div>
+  </div>
+
+  <div class="grille pleine">
+    <div class="boite">
+      <div class="titre-boite t-rose">5. LE SIGNE DU TRINÔME (LA RÈGLE D'OR)</div>
+      <div class="corps-boite">
+        <b>Signe de a à l'extérieur des racines, signe opposé entre les racines</b> (et 0 pile sur chaque racine) :
+        <div class="duo-tab">
+          <div class="mini-cadre">
+            <div class="titre">a &gt; 0 😊</div>
+            <table class="mini-tab">
+              <tr><th>x</th><td>−∞</td><td class="z">x₁</td><td></td><td class="z">x₂</td><td>+∞</td></tr>
+              <tr><th>y</th><td class="p">+</td><td class="z">0</td><td class="m">−</td><td class="z">0</td><td class="p">+</td></tr>
+            </table>
+          </div>
+          <div class="mini-cadre">
+            <div class="titre">a &lt; 0 ☹️</div>
+            <table class="mini-tab">
+              <tr><th>x</th><td>−∞</td><td class="z">x₁</td><td></td><td class="z">x₂</td><td>+∞</td></tr>
+              <tr><th>y</th><td class="m">−</td><td class="z">0</td><td class="p">+</td><td class="z">0</td><td class="m">−</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grille">
+    <div class="boite">
+      <div class="titre-boite t-rouge">6. EXEMPLE : x² − x − 6 ≤ 0</div>
+      <div class="corps-boite">
+        Racines : −2 et 3 (Δ = 25) → (x + 2)(x − 3)<br>
+        a = 1 &gt; 0 → négatif <b>entre</b> les racines<br>
+        <b style="color:#1a9e92">S = [−2 ; 3]</b> <em>(bornes incluses car « ≤ »)</em><br>
+        Pour « ≥ 0 » : l'extérieur → S = ]−∞ ; −2] ∪ [3 ; +∞[
+      </div>
+    </div>
+
+    <div class="boite">
+      <div class="titre-boite t-orouge">7. LES PIÈGES À ÉVITER</div>
+      <div class="corps-boite">
+        <ul style="margin:0;padding-left:16px;">
+          <li class="puce">(x + 3) s'annule en x = <b>−3</b>, pas +3 !</li>
+          <li class="puce">Le <b>a</b> devant la factorisation s'oublie facilement.</li>
+          <li class="puce">Solution d'une inéquation = un <b>intervalle</b>, pas deux nombres.</li>
+          <li class="puce" style="margin-bottom:0">Bornes incluses avec ≤ / ≥, exclues avec &lt; / &gt;.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="grille pleine">
+    <div class="boite">
+      <div class="titre-boite t-encre">8. LES 3 ÉCRITURES D'UN MÊME TRINÔME (récap du chapitre)</div>
+      <div class="corps-boite">
+        <div class="trois-ecritures">
+          <div class="ecriture"><div class="f">ax² + bx + c</div><div class="quoi">développée — on lit <b>c</b> (hauteur en x = 0)</div></div>
+          <div class="ecriture"><div class="f">a(x − α)² + β</div><div class="quoi">canonique — on lit le <b>sommet</b> (α ; β)</div></div>
+          <div class="ecriture"><div class="f">a(x − x₁)(x − x₂)</div><div class="quoi">factorisée — on lit les <b>solutions</b></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="pied">À relire avec le cours interactif : chaque règle ci-dessus correspond à une étape que tu as manipulée avec les curseurs 🙂</p>
+
+  </div>
+</div>
+</body>
+</html>

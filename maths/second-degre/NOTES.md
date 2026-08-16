@@ -1,7 +1,9 @@
 # Passation — Partie « Forme canonique et variations » (chapitre « Équations du second degré »)
 
 ## Contexte
-Ce dossier est la **première partie** du chapitre de maths « Équations du second degré » (hiérarchie du site : matière → chapitre → partie, voir `chapitres.js` à la racine). D'autres parties du même chapitre viendront s'ajouter dans leurs propres dossiers (discriminant et résolution, forme factorisée, signe du trinôme…) ; le contenu ci-dessous n'a pas vocation à être scindé.
+Ce dossier est la **première partie** du chapitre de maths « Équations du second degré » (hiérarchie du site : matière → chapitre → partie, voir `chapitres.js` à la racine). Les deux autres parties du chapitre vivent dans `../second-degre-resolution/` et `../second-degre-factorisation/`.
+
+**Historique important** : ce cours contenait à l'origine tout le chapitre (jusqu'à la formule et au solveur). Lors de la création de la partie 2, les étapes « résoudre = intersections », « discriminant », « formule pas à pas » et « solveur » ont été **déplacées dans `../second-degre-resolution/cours.html`** (avec 4 des 5 questions du quiz) pour que cette partie colle à son titre. La question du ballon (étape 1) reste volontairement **sans réponse ici** : c'est le fil rouge du chapitre, résolue à la fin de la partie 2.
 
 Cours interactif créé pour une élève entrant en première, bases fragiles en maths. Approche : concret d'abord (ballon de basket), concepts introduits progressivement, très graphique, tutoiement, aucun prérequis supposé (même x² est expliqué).
 
@@ -33,27 +35,22 @@ rm -rf ../../.qlout
 
 Attention au remplissage de la page A4 : le contenu doit occuper presque toute la hauteur de 297mm sans déborder sur une 2ᵈᵉ page (vérifier avec `mdls -name kMDItemNumberOfPages` après un `mdimport` pour forcer le rafraîchissement, Spotlight cache sinon l'ancienne valeur).
 
-## Structure du cours (10 étapes)
-1. Ballon de basket animé (trajectoire = parabole, question : où retombe-t-il ?)
+## Structure du cours (6 étapes)
+1. Ballon de basket animé (trajectoire = parabole ; la question « où retombe-t-il ? » est posée et renvoyée à la partie 2)
 2. y = x² avec curseur (deux opposés → même carré)
 3. Famille y = ax² + bx + c (3 sliders, rôles de a, b, c)
 4. Forme canonique y = a(x − α)² + β (sliders a, α, β ; sommet ; équivalence affichée avec la forme développée ; α = −b/2a)
 5. Tableau de variations (deux tableaux a > 0 / a < 0 en HTML/CSS, slider a qui surligne le tableau correspondant ; vocabulaire croissante/décroissante, minimum/maximum)
-6. Résoudre = intersections avec l'axe horizontal (slider c, cadre volontairement FIXE pour voir la courbe bouger)
-7. Discriminant Δ = b² − 4ac (badge coloré 2/1/0 solutions)
-8. Formule x = (−b ± √Δ)/2a, exemple x² − x − 6 = 0 déroulé pas à pas
-9. Solveur libre (inputs a, b, c → résolution détaillée + graphe)
-10. Quiz (5 QCM avec explications) + récap en cartes
+6. Quiz (5 QCM recentrés sur a/c, forme canonique, α = −b/2a et variations) + récap en cartes + liens fiche et partie 2
 
 ## Points techniques importants (bugs déjà corrigés — ne pas réintroduire)
+Le moteur de tracé (`creerPlot`, `cadreParabole`, `pasGrille`) est copié à l'identique dans les cours des parties 2 et 3 : tout correctif ici doit y être reporté (et inversement).
 - **Retina/dpr** : `canvas.height = h*dpr` réécrit l'attribut `height`. La hauteur CSS est mémorisée une seule fois (`cssH`) dans `creerPlot` et jamais relue depuis l'attribut. Sinon la moitié basse des graphes est coupée sur écran Retina.
-- **Cadrage adaptatif** : `cadreParabole(a, b, c, inclureZero)` garantit sommet, racines, axe horizontal (et (0,c) si demandé) visibles. Utilisé aux étapes 3, 4, 6 et dans le solveur. Testé sur toutes les combinaisons extrêmes des sliders.
+- **Cadrage adaptatif** : `cadreParabole(a, b, c, inclureZero)` garantit sommet, racines, axe horizontal (et (0,c) si demandé) visibles. Utilisé aux étapes 3 et 4 (et dans les parties 2-3). Testé sur toutes les combinaisons extrêmes des sliders.
 - **Grille adaptative** : `pasGrille()` choisit un pas 1/2/5/10 selon l'étendue.
-- Étape 5 : cadre fixe assumé (pédagogique), dimensionné pour toute la course du slider.
 - Le ballon recalcule son cadre selon la force (le tir « fort » sortait de l'écran).
+- La section « résoudre = intersections » (désormais en partie 2) utilise un cadre volontairement FIXE : pédagogique, ne pas le rendre adaptatif.
 
-## Idées de suite possibles (futures parties du chapitre)
-- Forme factorisée y = a(x − x₁)(x − x₂)
-- Signe du trinôme / tableau de signes
+## Idées de suite possibles
 - Exercices générés aléatoirement avec correction
 - Version imprimable du cours

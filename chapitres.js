@@ -40,9 +40,25 @@ const MATIERES = [
             titre: "Forme canonique et variations",
             emoji: "🏀",
             description:
-              "Paraboles, forme canonique, tableau de variations, discriminant et la fameuse formule — en partant d'un ballon de basket. Curseurs, solveur et quiz inclus.",
+              "Lire une parabole : la recette a, b, c, le sommet avec la forme canonique, et le tableau de variations — en partant d'un ballon de basket.",
             dossier: "maths/second-degre",
             pdf: "maths-second-degre-fiche.pdf",
+          },
+          {
+            titre: "Résolution d'une équation du second degré",
+            emoji: "🎯",
+            description:
+              "Le discriminant Δ, la fameuse formule et les cas rapides — avec un solveur pas à pas. Et enfin la réponse : où retombe le ballon ?",
+            dossier: "maths/second-degre-resolution",
+            pdf: "maths-second-degre-resolution-fiche.pdf",
+          },
+          {
+            titre: "Factorisation et signe d'un trinôme",
+            emoji: "🚦",
+            description:
+              "La forme factorisée, la règle du produit nul, le signe du trinôme et le tableau de signes — jusqu'à ta première inéquation.",
+            dossier: "maths/second-degre-factorisation",
+            pdf: "maths-second-degre-factorisation-fiche.pdf",
           },
         ],
       },

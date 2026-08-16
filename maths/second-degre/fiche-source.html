@@ -13,15 +13,15 @@
   html,body{margin:0;padding:0;}
   body{font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--encre);background:var(--fond);width:210mm;min-height:297mm;}
   .page{width:210mm;min-height:297mm;background:var(--fond);}
-  .entete{background:linear-gradient(135deg,#F2A900,#FF6F3C 55%,#f72585);color:#fff;padding:15px 34px 16px 15mm;position:relative;}
+  .entete{background:linear-gradient(135deg,#F2A900,#FF6F3C 55%,#f72585);color:#fff;padding:22px 34px 24px 15mm;position:relative;}
   .entete h1{margin:0 0 5px;font-size:29px;letter-spacing:.3px;}
   .entete p{margin:0;font-size:15px;}
-  .contenu{padding:6mm 10mm 3mm;}
-  .grille{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .contenu{padding:9mm 10mm 5mm;}
+  .grille{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
   .grille.pleine{grid-template-columns:1fr;}
-  .boite{background:#fff;border-radius:9px;overflow:hidden;border:1px solid #e6e6f0;margin-bottom:8px;}
-  .titre-boite{color:#fff;font-weight:700;font-size:15px;padding:8px 16px;letter-spacing:.2px;}
-  .corps-boite{padding:10px 18px 11px;font-size:14px;line-height:1.45;}
+  .boite{background:#fff;border-radius:9px;overflow:hidden;border:1px solid #e6e6f0;margin-bottom:13px;}
+  .titre-boite{color:#fff;font-weight:700;font-size:15.5px;padding:9px 16px;letter-spacing:.2px;}
+  .corps-boite{padding:14px 18px 16px;font-size:14.5px;line-height:1.55;}
   .t-orange{background:linear-gradient(90deg,#ff9f1c,#ff7a1c);}
   .t-magenta{background:linear-gradient(90deg,#b5179e,#7209b7);}
   .t-violet{background:linear-gradient(90deg,#7209b7,#560a86);}
@@ -71,7 +71,7 @@
 
   <div class="entete">
     <h1>FICHE DE RÉVISION</h1>
-    <p>Équations du second degré · Forme canonique et variations&nbsp;&nbsp;•&nbsp;&nbsp;ax² + bx + c = 0&nbsp;&nbsp;(a ≠ 0)</p>
+    <p>Équations du second degré — partie 1 : Forme canonique et variations&nbsp;&nbsp;•&nbsp;&nbsp;y = ax² + bx + c&nbsp;&nbsp;(a ≠ 0)</p>
   </div>
 
   <div class="contenu">
@@ -143,78 +143,49 @@
     </div>
   </div>
 
-  <div class="grille pleine">
-    <div class="boite">
-      <div class="titre-boite t-violet">4. LE DISCRIMINANT : LE DÉTECTEUR DE SOLUTIONS</div>
-      <div class="corps-boite">
-        <span class="formule-grande formule-violet" style="display:inline-block">Δ = b² − 4ac</span>
-        &nbsp;&nbsp;Son signe dit combien de fois la parabole traverse l'axe horizontal :
-        <div class="three">
-          <div class="carte">
-            <b style="color:#1a9e92">Δ &gt; 0</b>
-            <svg width="52" height="24" viewBox="0 0 52 24"><line x1="2" y1="15" x2="50" y2="15" stroke="#ccc" stroke-width="1"/><path d="M4,4 Q26,36 48,4" fill="none" stroke="#1a9e92" stroke-width="2.4" stroke-linecap="round"/><circle cx="13.7" cy="15" r="2.1" fill="#1a9e92"/><circle cx="38.3" cy="15" r="2.1" fill="#1a9e92"/></svg>
-            <div class="sol">2 solutions</div>
-          </div>
-          <div class="carte">
-            <b style="color:#ff9f1c">Δ = 0</b>
-            <svg width="52" height="24" viewBox="0 0 52 24"><line x1="2" y1="15" x2="50" y2="15" stroke="#ccc" stroke-width="1"/><path d="M4,4 Q26,26 48,4" fill="none" stroke="#ff9f1c" stroke-width="2.4" stroke-linecap="round"/><circle cx="26" cy="15" r="2.3" fill="#ff9f1c"/></svg>
-            <div class="sol">1 solution</div>
-          </div>
-          <div class="carte">
-            <b style="color:#e63946">Δ &lt; 0</b>
-            <svg width="52" height="24" viewBox="0 0 52 24"><line x1="2" y1="15" x2="50" y2="15" stroke="#ccc" stroke-width="1"/><path d="M4,4 Q26,14 48,4" fill="none" stroke="#e63946" stroke-width="2.4" stroke-linecap="round"/></svg>
-            <div class="sol">0 solution</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="grille">
     <div class="boite">
-      <div class="titre-boite t-vert">5. LES SOLUTIONS (si Δ ≥ 0)</div>
-      <div class="corps-boite">
-        <div class="formule-grande" style="color:#1a9e92">
-          x&nbsp;=&nbsp;<span class="frac vert"><span class="haut">−b ± √Δ</span><span class="bas">2a</span></span>
-        </div>
-        Si Δ = 0 : une seule solution&nbsp; x = <span class="frac-mini"><span class="haut">−b</span><span class="bas">2a</span></span>&nbsp; (le sommet !)
-      </div>
-    </div>
-
-    <div class="boite">
-      <div class="titre-boite t-bleu">6. LA MÉTHODE EN 4 ÉTAPES</div>
+      <div class="titre-boite t-bleu">4. TROUVER LE SOMMET : LA MÉTHODE</div>
       <div class="corps-boite">
         <ol class="etapes">
-          <li><span class="num">1</span> Identifier a, b, c (AVEC leurs signes !)</li>
-          <li><span class="num">2</span> Calculer Δ = b² − 4ac</li>
-          <li><span class="num">3</span> Regarder le signe de Δ → 2, 1 ou 0 solution(s)</li>
-          <li><span class="num">4</span> Si Δ ≥ 0 :&nbsp; x = <span class="frac-mini"><span class="haut">−b ± √Δ</span><span class="bas">2a</span></span></li>
+          <li><span class="num">1</span> Calculer&nbsp; α = <span class="frac-mini"><span class="haut">−b</span><span class="bas">2a</span></span>&nbsp; (b avec son signe !)</li>
+          <li><span class="num">2</span> Calculer β : remplacer x par α dans y</li>
+          <li><span class="num">3</span> Signe de a → β est un minimum (a &gt; 0) ou un maximum (a &lt; 0)</li>
         </ol>
       </div>
     </div>
+
+    <div class="boite">
+      <div class="titre-boite t-rouge">5. EXEMPLE : y = x² − 6x + 1</div>
+      <div class="corps-boite">
+        a = 1, &nbsp;b = −6, &nbsp;c = 1<br>
+        α = −b / 2a = −(−6) / 2 = <b>3</b><br>
+        β = 3² − 6 × 3 + 1 = 9 − 18 + 1 = <b>−8</b><br>
+        Sommet : <b>(3 ; −8)</b>. &nbsp;a = 1 &gt; 0 → la courbe sourit :<br>
+        <span class="verif">y décroît ↘ jusqu'au minimum −8, puis croît ↗ ✓</span>
+      </div>
+    </div>
   </div>
 
   <div class="grille">
     <div class="boite">
-      <div class="titre-boite t-rouge">7. EXEMPLE : x² − x − 6 = 0</div>
+      <div class="titre-boite t-orouge">6. LES PIÈGES À ÉVITER</div>
       <div class="corps-boite">
-        a = 1, &nbsp;b = −1, &nbsp;c = −6<br>
-        Δ = (−1)² − 4×1×(−6) = 1 + 24 = 25 &gt; 0 → 2 solutions<br>
-        √Δ = √25 = 5<br>
-        x₁ = (1 − 5)/2 = −2&nbsp;&nbsp;&nbsp;&nbsp;x₂ = (1 + 5)/2 = 3<br>
-        <span class="verif">Vérif : 3² − 3 − 6 = 0 ✓</span>
+        <ul style="margin:0;padding-left:16px;">
+          <li class="puce">(x − 3)² → α = +3&nbsp;&nbsp;/&nbsp;&nbsp;(x + 3)² → α = −3</li>
+          <li class="puce">Dans α = −b/2a, b garde son signe : b = −6 → α = +3</li>
+          <li class="puce">Ne confonds pas c (hauteur en x = 0) et β (hauteur du sommet)</li>
+          <li class="puce" style="margin-bottom:0">a = 0 interdit : sans x², plus de parabole !</li>
+        </ul>
       </div>
     </div>
 
     <div class="boite">
-      <div class="titre-boite t-orouge">8. LES PIÈGES À ÉVITER</div>
+      <div class="titre-boite t-vert">7. ET LA SUITE DU CHAPITRE ?</div>
       <div class="corps-boite">
-        <ul style="margin:0;padding-left:16px;">
-          <li class="puce">b et c gardent leur signe :<br>dans 3x² − 5x + 2, b = −5 (pas 5 !)</li>
-          <li class="puce">(x − 3)² → α = +3&nbsp;&nbsp;/&nbsp;&nbsp;(x + 3)² → α = −3</li>
-          <li class="puce">x² = 4 a DEUX solutions : x = 2 et x = −2</li>
-          <li class="puce" style="margin-bottom:0">Toujours vérifier en remplaçant x !</li>
-        </ul>
+        <b>Partie 2 — Résolution :</b> combien de fois la parabole traverse-t-elle l'axe, et où exactement ? Le discriminant Δ et la fameuse formule.<br>
+        <b>Partie 3 — Factorisation et signe :</b> la 3ᵉ écriture du trinôme, et son signe partout.<br>
+        <em>Chaque partie a sa propre fiche 😉</em>
       </div>
     </div>
   </div>

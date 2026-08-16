@@ -93,7 +93,7 @@
   </nav>
   <p class="fil-chapitre">🧮 Chapitre : Équations du second degré</p>
   <h1>🏀 Forme canonique et variations</h1>
-  <p>Un cours en images, qui part d'un ballon de basket et arrive (en douceur !) à la fameuse formule. Bouge les curseurs, observe, et les maths vont se dessiner toutes seules.</p>
+  <p>Un cours en images, qui part d'un ballon de basket et t'apprend à lire une parabole : sa recette a, b, c, son sommet et ses variations. Bouge les curseurs, observe, et les maths vont se dessiner toutes seules.</p>
 </header>
 
 <main>
@@ -111,7 +111,7 @@
       <input type="range" id="force" min="1" max="3" step="1" value="2">
     </div>
   </div>
-  <div class="info">👀 <b>Observe la trace du ballon.</b> Cette courbe en forme de cloche s'appelle une <b>parabole</b>. Et la grande question de tout ce cours, c'est : <b>« à quelle distance le ballon touche-t-il le sol ? »</b> Répondre à cette question, c'est exactement <i>résoudre une équation du second degré</i>. Tout le reste du cours sert à répondre à cette question !</div>
+  <div class="info">👀 <b>Observe la trace du ballon.</b> Cette courbe en forme de cloche s'appelle une <b>parabole</b>. Et la grande question de tout ce chapitre, c'est : <b>« à quelle distance le ballon touche-t-il le sol ? »</b> Répondre à cette question, c'est exactement <i>résoudre une équation du second degré</i> — ce sera le grand final, dans la <b>partie 2</b>. Mais avant de pouvoir répondre, il faut apprendre à lire ces courbes : c'est tout le programme de cette partie !</div>
 </section>
 
 <!-- ================= SECTION 2 : y = x² ================= -->
@@ -200,96 +200,19 @@
   <div class="astuce">💡 <b>Pour construire le tableau en exercice :</b> 1) calcule α = −b / 2a ; 2) calcule β en remplaçant x par α ; 3) regarde le signe de a : positif → flèches ↘ puis ↗ (β est un minimum), négatif → flèches ↗ puis ↘ (β est un maximum).</div>
 </section>
 
-<!-- ================= SECTION 4 : LES SOLUTIONS ================= -->
-<section class="s4">
-  <span class="chip">Étape 6</span>
-  <h2>Résoudre = trouver où la courbe traverse le sol</h2>
-  <p class="lecture">Résoudre l'équation <code>ax² + bx + c = 0</code>, c'est chercher les valeurs de x pour lesquelles <b>y vaut 0</b>. Sur le dessin, c'est ultra concret : ce sont les endroits où <b>la parabole coupe l'axe horizontal</b> (le « sol »). Fais glisser la parabole de haut en bas avec le curseur :</p>
-  <canvas id="cvSol" height="360"></canvas>
-  <div class="controls">
-    <div class="ctrl" style="max-width:420px">
-      <label>Hauteur de la parabole (c) <span id="valC4">-2</span></label>
-      <input type="range" id="sC4" min="-5" max="4" step="0.1" value="-2">
-    </div>
-    <div id="badgeSol" class="badge"></div>
-  </div>
-  <div class="info">🎯 Tu viens de découvrir la chose la plus importante du chapitre : une équation du second degré peut avoir <b>2 solutions</b> (la courbe traverse le sol en deux points), <b>1 seule solution</b> (elle touche le sol du bout de son nez… exactement par son <b>sommet</b> !) ou <b>0 solution</b> (elle flotte sans jamais toucher le sol). Il n'y a pas d'autre cas possible !</div>
-</section>
-
-<!-- ================= SECTION 5 : LE DISCRIMINANT ================= -->
-<section class="s5">
-  <span class="chip">Étape 7</span>
-  <h2>Le discriminant Δ : un détecteur de solutions</h2>
-  <p class="lecture">Question : peut-on savoir <b>sans dessiner</b> combien il y a de solutions ? Oui ! Il existe un « détecteur » qui se calcule avec a, b et c. On l'appelle le <b>discriminant</b> et on le note <b>Δ</b> (la lettre grecque « delta ») :</p>
-  <div class="formule">Δ = b² − 4ac</div>
-  <p class="lecture">Bouge les curseurs : à chaque position, on calcule Δ et on regarde la courbe. Vérifie que le signe de Δ prédit toujours correctement le dessin !</p>
-  <canvas id="cvDelta" height="360"></canvas>
-  <div class="controls">
-    <div class="ctrl"><label>a <span id="valA5">1</span></label><input type="range" id="sA5" min="-3" max="3" step="0.1" value="1"></div>
-    <div class="ctrl"><label>b <span id="valB5">2</span></label><input type="range" id="sB5" min="-6" max="6" step="0.1" value="2"></div>
-    <div class="ctrl"><label>c <span id="valC5">-3</span></label><input type="range" id="sC5" min="-6" max="6" step="0.1" value="-3"></div>
-  </div>
-  <div style="text-align:center"><span id="badgeDelta" class="badge"></span></div>
-  <div id="calculDelta" class="info"></div>
-  <div class="cartes">
-    <div class="carte" style="background:var(--vert)"><h3>Δ &gt; 0</h3><p>La courbe traverse le sol : <b>2 solutions</b>.</p></div>
-    <div class="carte" style="background:var(--orange)"><h3>Δ = 0</h3><p>La courbe touche juste le sol : <b>1 solution</b>.</p></div>
-    <div class="carte" style="background:var(--rouge)"><h3>Δ &lt; 0</h3><p>La courbe ne touche jamais le sol : <b>0 solution</b>.</p></div>
-  </div>
-</section>
-
-<!-- ================= SECTION 6 : LA FORMULE ================= -->
-<section class="s6">
-  <span class="chip">Étape 8</span>
-  <h2>La formule qui donne les solutions</h2>
-  <p class="lecture">Le discriminant dit <b>combien</b> il y a de solutions. Mais pour savoir <b>lesquelles</b>, il existe une formule magique. Quand Δ ≥ 0, les solutions sont :</p>
-  <div class="formule">
-    x = <span class="frac"><span class="haut">−b ± <span class="sqrt">√<span class="rad">Δ</span></span></span><span class="bas">2a</span></span>
-  </div>
-  <p class="lecture">Le symbole <b>±</b> veut dire « une fois avec +, une fois avec − » : c'est ce qui donne les deux solutions. Voyons-la fonctionner pas à pas sur un exemple : résolvons <b>x² − x − 6 = 0</b>. Clique sur le bouton pour dérouler chaque étape.</p>
-  <ol class="etapes" id="etapes">
-    <li><b>Étape 1 — On identifie a, b, c.</b><br>Dans x² − x − 6 : &nbsp; a = 1 (devant x²), &nbsp; b = −1 (devant x), &nbsp; c = −6 (le nombre seul). Attention aux signes moins, ils font partie du nombre !</li>
-    <li><b>Étape 2 — On calcule Δ.</b><br>Δ = b² − 4ac = (−1)² − 4 × 1 × (−6) = 1 + 24 = <b>25</b>. Comme Δ &gt; 0, il y a 2 solutions. 🎉</li>
-    <li><b>Étape 3 — On calcule √Δ.</b><br>√25 = 5 (car 5 × 5 = 25).</li>
-    <li><b>Étape 4 — On applique la formule.</b><br>x₁ = (−b − √Δ) / 2a = (1 − 5) / 2 = −4/2 = <b>−2</b><br>x₂ = (−b + √Δ) / 2a = (1 + 5) / 2 = 6/2 = <b>3</b></li>
-    <li><b>Étape 5 — On vérifie sur le graphique ! 👇</b><br>La parabole y = x² − x − 6 coupe bien le sol en x = −2 et x = 3. La formule et le dessin racontent la même histoire.</li>
-  </ol>
-  <div class="controls">
-    <button id="btnEtape">▶ Étape suivante</button>
-    <button id="btnResetEtapes" class="secondaire">↺ Recommencer</button>
-  </div>
-  <canvas id="cvExemple" height="340" style="display:none;margin-top:10px"></canvas>
-  <div class="astuce">💡 Petite vérification que tu peux toujours faire : remplace x par la solution dans l'équation. Ici : 3² − 3 − 6 = 9 − 3 − 6 = 0 ✅. Ça marche !</div>
-</section>
-
-<!-- ================= SECTION 7 : LE SOLVEUR ================= -->
-<section class="s7">
-  <span class="chip">Étape 9</span>
-  <h2>À toi de jouer : le solveur pas à pas</h2>
-  <p class="lecture">Choisis tes propres valeurs de a, b et c, et regarde la résolution complète, avec le graphique pour vérifier. Essaie par exemple : <button class="secondaire exemple-btn" data-abc="1,-1,-6">a=1, b=−1, c=−6</button> <button class="secondaire exemple-btn" data-abc="1,-4,4">a=1, b=−4, c=4</button> <button class="secondaire exemple-btn" data-abc="2,1,3">a=2, b=1, c=3</button></p>
-  <div class="grille-inputs">
-    <label>a <input type="number" id="inA" value="1" step="any"></label>
-    <label>b <input type="number" id="inB" value="2" step="any"></label>
-    <label>c <input type="number" id="inC" value="-8" step="any"></label>
-    <button id="btnResoudre">🔍 Résoudre</button>
-  </div>
-  <div id="resSolveur" class="resultat-solveur"></div>
-  <canvas id="cvSolveur" height="340" style="display:none;margin-top:12px"></canvas>
-</section>
-
 <!-- ================= SECTION 8 : QUIZ ================= -->
 <section class="s8">
-  <span class="chip">Étape 10</span>
+  <span class="chip">Étape 6</span>
   <h2>Petit quiz pour vérifier 🎓</h2>
 
   <div class="quiz-q" data-bonne="1">
-    <p>1. Sur un graphique, les solutions de ax² + bx + c = 0, c'est…</p>
+    <p>1. La parabole y = −2x² + 3x + 1…</p>
     <div class="quiz-opts">
-      <button>Le sommet de la parabole</button>
-      <button>Les points où la courbe coupe l'axe horizontal</button>
-      <button>Le point où la courbe coupe l'axe vertical</button>
+      <button>sourit 😊 (tournée vers le haut)</button>
+      <button>boude ☹️ (tournée vers le bas)</button>
+      <button>est une droite</button>
     </div>
-    <div class="quiz-expl">✅ Exactement : résoudre l'équation, c'est chercher où y = 0, donc où la courbe traverse le « sol ».</div>
+    <div class="quiz-expl">✅ Le nombre devant x² est a = −2, négatif : la parabole est tournée vers le bas. C'est le premier réflexe à avoir : regarder le signe de a !</div>
   </div>
 
   <div class="quiz-q" data-bonne="0">
@@ -302,34 +225,34 @@
     <div class="quiz-expl">✅ Forme canonique a(x − α)² + β → sommet (α ; β) = (3 ; 1). Piège classique : le « − » fait partie de la formule, donc (x − 3) donne α = +3 (et (x + 3) donnerait α = −3) !</div>
   </div>
 
-  <div class="quiz-q" data-bonne="2">
-    <p>3. Si Δ &lt; 0, l'équation a…</p>
-    <div class="quiz-opts">
-      <button>2 solutions</button>
-      <button>1 solution</button>
-      <button>0 solution</button>
-    </div>
-    <div class="quiz-expl">✅ Δ négatif = la parabole ne touche jamais l'axe horizontal, donc aucune solution.</div>
-  </div>
-
   <div class="quiz-q" data-bonne="0">
-    <p>4. Dans l'équation 3x² − 5x + 2 = 0, que vaut b ?</p>
+    <p>3. Pour y = x² − 6x + 1, l'abscisse α du sommet vaut…</p>
     <div class="quiz-opts">
-      <button>−5</button>
-      <button>5</button>
-      <button>3</button>
+      <button>α = 3</button>
+      <button>α = −3</button>
+      <button>α = −6</button>
     </div>
-    <div class="quiz-expl">✅ b est le nombre devant x, <b>avec son signe</b> : ici b = −5. Le piège classique, c'est d'oublier le moins !</div>
+    <div class="quiz-expl">✅ α = −b / 2a = −(−6) / (2 × 1) = 6/2 = 3. (Et pour β, on remplace : β = 3² − 6 × 3 + 1 = −8. Sommet : (3 ; −8).)</div>
   </div>
 
   <div class="quiz-q" data-bonne="1">
-    <p>5. Pour x² − 4 = 0, on a Δ = 0² − 4 × 1 × (−4) = 16. Les solutions sont…</p>
+    <p>4. Si a &lt; 0, la fonction…</p>
     <div class="quiz-opts">
-      <button>x = 4 seulement</button>
-      <button>x = 2 et x = −2</button>
-      <button>x = 16 et x = −16</button>
+      <button>décroît puis croît : β est un minimum</button>
+      <button>croît puis décroît : β est un maximum</button>
+      <button>est toujours croissante</button>
     </div>
-    <div class="quiz-expl">✅ x = (0 ± √16)/2 = ±4/2 = ±2. Et ça se comprend sans formule : x² = 4, donc x = 2 ou x = −2 (souviens-toi de l'étape 2 : deux opposés ont le même carré !).</div>
+    <div class="quiz-expl">✅ a &lt; 0 : la parabole « boude », donc y monte jusqu'au sommet puis redescend. β est un <b>maximum</b>, atteint en x = α. (C'est le tableau de droite de l'étape 5.)</div>
+  </div>
+
+  <div class="quiz-q" data-bonne="2">
+    <p>5. Dans y = ax² + bx + c, le nombre c est…</p>
+    <div class="quiz-opts">
+      <button>l'abscisse du sommet</button>
+      <button>la pente de la courbe</button>
+      <button>la hauteur de la courbe quand x = 0</button>
+    </div>
+    <div class="quiz-expl">✅ Remplace x par 0 : y = a × 0 + b × 0 + c = c. La courbe coupe donc l'axe vertical à la hauteur c. (Attention à ne pas confondre avec α, l'abscisse du sommet !)</div>
   </div>
 </section>
 
@@ -338,23 +261,24 @@
   <span class="chip" style="background:var(--encre)">Récap</span>
   <h2>Ce qu'il faut retenir 📌</h2>
   <div class="cartes">
-    <div class="carte" style="background:var(--bleu)"><h3>1. La forme</h3><p>Une équation du second degré s'écrit ax² + bx + c = 0, avec a ≠ 0. Sa courbe est une parabole.</p></div>
-    <div class="carte" style="background:var(--magenta)"><h3>2. La forme canonique</h3><p>y = a(x − α)² + β : le sommet (α ; β) se lit directement. Avec α = −b / 2a.</p></div>
-    <div class="carte" style="background:var(--rose)"><h3>3. Résoudre = graphique</h3><p>Les solutions sont les points où la parabole coupe l'axe horizontal.</p></div>
-    <div class="carte" style="background:var(--violet)"><h3>4. Le discriminant</h3><p>Δ = b² − 4ac. Son signe donne le nombre de solutions : 2 si Δ&gt;0, 1 si Δ=0, 0 si Δ&lt;0.</p></div>
-    <div class="carte" style="background:var(--vert)"><h3>5. La formule</h3><p>Si Δ ≥ 0 : x = (−b ± √Δ) / 2a. Le ± donne les deux solutions.</p></div>
+    <div class="carte" style="background:var(--bleu)"><h3>1. La forme</h3><p>Un trinôme du second degré s'écrit ax² + bx + c, avec a ≠ 0. Sa courbe est une parabole.</p></div>
+    <div class="carte" style="background:var(--orange)"><h3>2. Le rôle de a et c</h3><p>a &gt; 0 : elle sourit 😊. a &lt; 0 : elle boude ☹️. c = la hauteur de la courbe quand x = 0.</p></div>
+    <div class="carte" style="background:var(--magenta)"><h3>3. La forme canonique</h3><p>y = a(x − α)² + β : le sommet (α ; β) se lit directement dans la formule.</p></div>
+    <div class="carte" style="background:var(--vert)"><h3>4. Trouver le sommet</h3><p>α = −b / 2a, puis β = y quand x = α. À savoir refaire les yeux fermés !</p></div>
+    <div class="carte" style="background:#3a0ca3"><h3>5. Les variations</h3><p>a &gt; 0 : ↘ puis ↗, β est un minimum. a &lt; 0 : ↗ puis ↘, β est un maximum.</p></div>
   </div>
-  <div class="astuce" style="margin-top:18px">🌟 Et le ballon du début ? Sa trajectoire était y = −0,05x² + 0,9x + 2. En résolvant −0,05x² + 0,9x + 2 = 0 avec la formule, on trouve x ≈ 20 mètres : c'est là qu'il retombe. Tu sais maintenant faire ce calcul toute seule !</div>
+  <div class="astuce" style="margin-top:18px">🌟 Et le ballon du début ? Pour savoir où il retombe, il faut résoudre −0,05x² + 0,9x + 2 = 0… et c'est exactement le programme de la <b>partie 2</b>. Suspense ! 😉</div>
 </section>
 
-<!-- ================= FICHE ================= -->
+<!-- ================= FICHE + SUITE ================= -->
 <section>
   <span class="chip" style="background:var(--vert)">Et après ?</span>
-  <h2>Garde la fiche sous la main 📄</h2>
-  <p class="lecture">Tout le chapitre tient sur une page A4 : la fiche de révision reprend chaque formule que tu viens de manipuler. Consulte-la en ligne ou télécharge-la pour l'imprimer.</p>
+  <h2>La fiche, puis la suite du chapitre 📄</h2>
+  <p class="lecture">Tout l'essentiel de cette partie tient sur une page A4 : la fiche de révision reprend chaque formule que tu viens de manipuler. Puis direction la partie 2 : le discriminant, la fameuse formule… et la réponse à la question du ballon !</p>
   <p style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">
     <a class="btn-lien" href="fiche.html">📄 Voir la fiche de révision</a>
     <a class="btn-lien secondaire" href="maths-second-degre-fiche.pdf" download>⬇️ Télécharger le PDF</a>
+    <a class="btn-lien" style="background:var(--rose)" href="../second-degre-resolution/cours.html">🎯 Partie 2 : Résolution →</a>
   </p>
 </section>
 
@@ -625,163 +549,6 @@ function cadreParabole(a, b, c, inclureZero){
   [sa,sal,sbe].forEach(s => s.addEventListener("input", dessiner));
   dessiner();
   window.addEventListener("resize", dessiner);
-})();
-
-/* ================= 4. NOMBRE DE SOLUTIONS ================= */
-(function(){
-  const cv = document.getElementById("cvSol");
-  // cadre volontairement FIXE ici : c'est la parabole qui doit bouger sous nos yeux.
-  // c varie de -5 à 4, a=1, b=-2 → sommet (1, c-1) ∈ [-6 ; 3] : tout tient dans [-7 ; 7].
-  const plot = creerPlot(cv, -3.5, 5.5, -7, 7);
-  const sC4 = document.getElementById("sC4");
-  const a = 1, b = -2;
-  function dessiner(){
-    const c = parseFloat(sC4.value);
-    document.getElementById("valC4").textContent = fmt(c);
-    plot.debut();
-    plot.courbe(x => a*x*x + b*x + c, "#f72585");
-    const delta = b*b - 4*a*c;
-    const badge = document.getElementById("badgeSol");
-    if(delta > 0.001){
-      const r = Math.sqrt(delta);
-      const x1 = (-b - r)/(2*a), x2 = (-b + r)/(2*a);
-      plot.point(x1, 0, "#2ec4b6", "solution 1", -14);
-      plot.point(x2, 0, "#2ec4b6", "solution 2", -14);
-      badge.textContent = "✌️ 2 solutions";
-      badge.style.background = "#d8f3dc"; badge.style.color = "#1b4332";
-    } else if(delta > -0.001){
-      plot.point(-b/(2*a), 0, "#ff9f1c", "l'unique solution", -14);
-      badge.textContent = "☝️ 1 solution";
-      badge.style.background = "#fff1d6"; badge.style.color = "#9a6200";
-    } else {
-      badge.textContent = "🙅 0 solution";
-      badge.style.background = "#ffe0e3"; badge.style.color = "#9d0208";
-    }
-  }
-  sC4.addEventListener("input", dessiner);
-  dessiner();
-  window.addEventListener("resize", dessiner);
-})();
-
-/* ================= 5. DISCRIMINANT ================= */
-(function(){
-  const cv = document.getElementById("cvDelta");
-  const plot = creerPlot(cv, -6, 6, -8, 8);
-  const sA = document.getElementById("sA5"), sB = document.getElementById("sB5"), sC = document.getElementById("sC5");
-  function dessiner(){
-    let a = parseFloat(sA.value); const b = parseFloat(sB.value), c = parseFloat(sC.value);
-    if(Math.abs(a) < 0.1) a = a < 0 ? -0.1 : 0.1;
-    document.getElementById("valA5").textContent = fmt(a);
-    document.getElementById("valB5").textContent = fmt(b);
-    document.getElementById("valC5").textContent = fmt(c);
-    Object.assign(plot, cadreParabole(a, b, c, false));
-    plot.debut();
-    plot.courbe(x => a*x*x + b*x + c, "#7209b7");
-    const delta = b*b - 4*a*c;
-    const badge = document.getElementById("badgeDelta");
-    let texte;
-    if(delta > 0.001){
-      const r = Math.sqrt(delta);
-      plot.point((-b-r)/(2*a), 0, "#2ec4b6", "", -14);
-      plot.point((-b+r)/(2*a), 0, "#2ec4b6", "", -14);
-      badge.textContent = "Δ = " + fmt(delta) + "  →  Δ > 0 : 2 solutions ✌️";
-      badge.style.background = "#d8f3dc"; badge.style.color = "#1b4332";
-      texte = "La courbe traverse bien le sol en 2 points (en vert).";
-    } else if(delta > -0.001){
-      plot.point(-b/(2*a), 0, "#ff9f1c", "", -14);
-      badge.textContent = "Δ = 0  →  1 solution ☝️";
-      badge.style.background = "#fff1d6"; badge.style.color = "#9a6200";
-      texte = "La courbe touche le sol en un seul point.";
-    } else {
-      badge.textContent = "Δ = " + fmt(delta) + "  →  Δ < 0 : 0 solution 🙅";
-      badge.style.background = "#ffe0e3"; badge.style.color = "#9d0208";
-      texte = "La courbe ne touche jamais le sol.";
-    }
-    document.getElementById("calculDelta").innerHTML =
-      "🧮 Calcul : Δ = b² − 4ac = (" + fmt(b) + ")² − 4 × " + fmt(a) + " × (" + fmt(c) + ") = " +
-      fmt(b*b) + " − (" + fmt(4*a*c) + ") = <b>" + fmt(delta) + "</b>. " + texte;
-  }
-  [sA,sB,sC].forEach(s => s.addEventListener("input", dessiner));
-  dessiner();
-  window.addEventListener("resize", dessiner);
-})();
-
-/* ================= 6. EXEMPLE PAS A PAS ================= */
-(function(){
-  const etapes = document.querySelectorAll("#etapes li");
-  const cv = document.getElementById("cvExemple");
-  let i = 0;
-  function dessinerExemple(){
-    cv.style.display = "block";
-    const plot = creerPlot(cv, -5, 6, -8, 8);
-    plot.debut();
-    plot.courbe(x => x*x - x - 6, "#e63946");
-    plot.point(-2, 0, "#2ec4b6", "x₁ = −2", -14);
-    plot.point(3, 0, "#2ec4b6", "x₂ = 3", -14);
-  }
-  document.getElementById("btnEtape").addEventListener("click", () => {
-    if(i < etapes.length){
-      etapes[i].classList.add("visible");
-      i++;
-      if(i === etapes.length) dessinerExemple();
-    }
-  });
-  document.getElementById("btnResetEtapes").addEventListener("click", () => {
-    etapes.forEach(e => e.classList.remove("visible"));
-    cv.style.display = "none";
-    i = 0;
-  });
-})();
-
-/* ================= 7. SOLVEUR ================= */
-(function(){
-  const cv = document.getElementById("cvSolveur");
-  const res = document.getElementById("resSolveur");
-  function resoudre(){
-    const a = parseFloat(document.getElementById("inA").value);
-    const b = parseFloat(document.getElementById("inB").value);
-    const c = parseFloat(document.getElementById("inC").value);
-    if([a,b,c].some(v => isNaN(v))){ res.innerHTML = "<div class='attention'>Remplis les trois cases avec des nombres 🙂</div>"; cv.style.display="none"; return; }
-    if(a === 0){ res.innerHTML = "<div class='attention'>⚠️ Avec a = 0, ce n'est plus une équation du second degré (le x² disparaît). Mets un a différent de 0 !</div>"; cv.style.display="none"; return; }
-    const delta = b*b - 4*a*c;
-    let html = "<div class='info'><b>Équation :</b> " + fmt(a) + "x² " + (b<0?"− ":"+ ") + fmt(Math.abs(b)) + "x " + (c<0?"− ":"+ ") + fmt(Math.abs(c)) + " = 0<br>" +
-      "<b>Étape 1 :</b> a = " + fmt(a) + ", b = " + fmt(b) + ", c = " + fmt(c) + "<br>" +
-      "<b>Étape 2 :</b> Δ = b² − 4ac = (" + fmt(b) + ")² − 4 × " + fmt(a) + " × (" + fmt(c) + ") = <b>" + fmt(delta) + "</b><br>";
-    let racines = [];
-    if(delta > 0){
-      const r = Math.sqrt(delta);
-      const x1 = (-b - r)/(2*a), x2 = (-b + r)/(2*a);
-      racines = [x1, x2];
-      html += "<b>Étape 3 :</b> Δ &gt; 0 → 2 solutions ✌️<br>" +
-        "<b>Étape 4 :</b> √Δ = √" + fmt(delta) + " ≈ " + fmt(r) + "<br>" +
-        "x₁ = (−b − √Δ) / 2a = (" + fmt(-b) + " − " + fmt(r) + ") / " + fmt(2*a) + " ≈ <b style='color:#2ec4b6'>" + fmt(x1) + "</b><br>" +
-        "x₂ = (−b + √Δ) / 2a = (" + fmt(-b) + " + " + fmt(r) + ") / " + fmt(2*a) + " ≈ <b style='color:#2ec4b6'>" + fmt(x2) + "</b></div>";
-    } else if(delta === 0){
-      const x0 = -b/(2*a);
-      racines = [x0];
-      html += "<b>Étape 3 :</b> Δ = 0 → 1 seule solution ☝️<br>" +
-        "x₀ = −b / 2a = " + fmt(-b) + " / " + fmt(2*a) + " = <b style='color:#ff9f1c'>" + fmt(x0) + "</b></div>";
-    } else {
-      html += "<b>Étape 3 :</b> Δ &lt; 0 → <b style='color:#e63946'>aucune solution</b> 🙅 (la parabole ne touche pas l'axe horizontal, regarde !)</div>";
-    }
-    res.innerHTML = html;
-    cv.style.display = "block";
-    const cad = cadreParabole(a, b, c, false);
-    const plot = creerPlot(cv, cad.xmin, cad.xmax, cad.ymin, cad.ymax);
-    plot.debut();
-    plot.courbe(x => a*x*x + b*x + c, "#0a9396");
-    racines.forEach((r,idx) => plot.point(r, 0, "#f72585", (racines.length===2 ? "x"+(idx+1)+" ≈ " : "x₀ = ") + fmt(r), idx%2 ? 24 : -14));
-  }
-  document.getElementById("btnResoudre").addEventListener("click", resoudre);
-  document.querySelectorAll(".exemple-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const [a,b,c] = btn.dataset.abc.split(",");
-      document.getElementById("inA").value = a;
-      document.getElementById("inB").value = b;
-      document.getElementById("inC").value = c;
-      resoudre();
-    });
-  });
 })();
 
 /* ================= 3ter. TABLEAU DE VARIATIONS ================= */

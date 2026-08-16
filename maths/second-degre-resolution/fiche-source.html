@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Fiche de révision — Résolution d'une équation du second degré</title>
+<style>
+  @page{ size:A4; margin:0; }
+  :root{
+    --bleu:#4361ee; --violet:#7209b7; --rose:#f72585; --vert:#2ec4b6;
+    --orange:#ff9f1c; --rouge:#e63946; --magenta:#b5179e; --fond:#f6f7fb; --encre:#22223b;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--encre);background:var(--fond);width:210mm;min-height:297mm;}
+  .page{width:210mm;min-height:297mm;background:var(--fond);}
+  .entete{background:linear-gradient(135deg,#F2A900,#FF6F3C 55%,#f72585);color:#fff;padding:20px 34px 22px 15mm;}
+  .entete h1{margin:0 0 5px;font-size:29px;letter-spacing:.3px;}
+  .entete p{margin:0;font-size:15px;}
+  .contenu{padding:8mm 10mm 6mm;}
+  .grille{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .grille.pleine{grid-template-columns:1fr;}
+  .boite{background:#fff;border-radius:9px;overflow:hidden;border:1px solid #e6e6f0;margin-bottom:10px;}
+  .titre-boite{color:#fff;font-weight:700;font-size:15px;padding:8px 16px;letter-spacing:.2px;}
+  .corps-boite{padding:13px 18px 15px;font-size:14px;line-height:1.45;}
+  .t-rose{background:linear-gradient(90deg,#f72585,#b5179e);}
+  .t-violet{background:linear-gradient(90deg,#7209b7,#560a86);}
+  .t-vert{background:linear-gradient(90deg,#2ec4b6,#1a9e92);}
+  .t-bleu{background:linear-gradient(90deg,#4361ee,#3651d4);}
+  .t-rouge{background:linear-gradient(90deg,#e63946,#c1121f);}
+  .t-orouge{background:linear-gradient(90deg,#ff9f1c,#e63946);}
+  .formule-grande{font-family:Georgia,"Times New Roman",serif;font-size:23px;font-weight:700;text-align:center;margin:8px 0;}
+  .formule-violet{color:var(--violet);}
+  .frac{display:inline-block;vertical-align:middle;text-align:center;margin:0 6px;}
+  .frac .haut{display:block;border-bottom:2px solid var(--encre);padding:0 8px 2px;}
+  .frac .bas{display:block;padding:2px 8px 0;}
+  .frac.vert .haut{border-color:#1a9e92;color:#1a9e92;}
+  .frac.vert .bas{color:#1a9e92;}
+  .frac-mini{display:inline-block;vertical-align:middle;text-align:center;margin:0 3px;font-size:.95em;line-height:1.1;}
+  .frac-mini .haut{display:block;border-bottom:1.5px solid currentColor;padding:0 4px 1px;}
+  .frac-mini .bas{display:block;padding:1px 4px 0;}
+  .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:8px;}
+  .three .carte{background:#f8f9fe;border-radius:8px;padding:10px 8px 8px;text-align:center;}
+  .three .carte b{font-size:16px;}
+  .three .carte .sol{font-size:13px;color:#555;margin-top:2px;}
+  .etapes{list-style:none;margin:3px 0 0;padding:0;}
+  .etapes li{display:flex;gap:9px;margin-bottom:8px;align-items:flex-start;}
+  .num{flex:none;width:22px;height:22px;border-radius:50%;background:var(--bleu);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .verif{color:var(--rouge);font-weight:700;}
+  .puce{margin:0 0 8px;padding-left:16px;}
+  .pied{text-align:center;font-size:13px;font-style:italic;color:#7a7a94;margin-top:4px;}
+  em{font-style:italic;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="entete">
+    <h1>FICHE DE RÉVISION</h1>
+    <p>Équations du second degré — partie 2 : Résolution&nbsp;&nbsp;•&nbsp;&nbsp;ax² + bx + c = 0&nbsp;&nbsp;(a ≠ 0)</p>
+  </div>
+
+  <div class="contenu">
+
+  <div class="grille pleine">
+    <div class="boite">
+      <div class="titre-boite t-rose">1. RÉSOUDRE, C'EST QUOI ? (VERSION GRAPHIQUE)</div>
+      <div class="corps-boite">
+        Résoudre ax² + bx + c = 0, c'est chercher les x pour lesquels <b>y = 0</b> : les points où la parabole <b>coupe l'axe horizontal</b>.
+        <div class="three">
+          <div class="carte">
+            <b style="color:#1a9e92">Δ &gt; 0</b>
+            <svg width="52" height="24" viewBox="0 0 52 24"><line x1="2" y1="15" x2="50" y2="15" stroke="#ccc" stroke-width="1"/><path d="M4,4 Q26,36 48,4" fill="none" stroke="#1a9e92" stroke-width="2.4" stroke-linecap="round"/><circle cx="13.7" cy="15" r="2.1" fill="#1a9e92"/><circle cx="38.3" cy="15" r="2.1" fill="#1a9e92"/></svg>
+            <div class="sol">2 solutions</div>
+          </div>
+          <div class="carte">
+            <b style="color:#ff9f1c">Δ = 0</b>
+            <svg width="52" height="24" viewBox="0 0 52 24"><line x1="2" y1="15" x2="50" y2="15" stroke="#ccc" stroke-width="1"/><path d="M4,4 Q26,26 48,4" fill="none" stroke="#ff9f1c" stroke-width="2.4" stroke-linecap="round"/><circle cx="26" cy="15" r="2.3" fill="#ff9f1c"/></svg>
+            <div class="sol">1 solution (le sommet !)</div>
+          </div>
+          <div class="carte">
+            <b style="color:#e63946">Δ &lt; 0</b>
+            <svg width="52" height="24" viewBox="0 0 52 24"><line x1="2" y1="15" x2="50" y2="15" stroke="#ccc" stroke-width="1"/><path d="M4,4 Q26,14 48,4" fill="none" stroke="#e63946" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <div class="sol">0 solution</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grille">
+    <div class="boite">
+      <div class="titre-boite t-violet">2. LE DISCRIMINANT</div>
+      <div class="corps-boite">
+        <div class="formule-grande formule-violet">Δ = b² − 4ac</div>
+        Son signe donne le <b>nombre</b> de solutions :<br>
+        Δ &gt; 0 → 2&nbsp;&nbsp;•&nbsp;&nbsp;Δ = 0 → 1&nbsp;&nbsp;•&nbsp;&nbsp;Δ &lt; 0 → 0.<br>
+        <em>Identifier a, b, c AVEC leurs signes !</em>
+      </div>
+    </div>
+
+    <div class="boite">
+      <div class="titre-boite t-vert">3. LES SOLUTIONS (si Δ ≥ 0)</div>
+      <div class="corps-boite">
+        <div class="formule-grande" style="color:#1a9e92">
+          x&nbsp;=&nbsp;<span class="frac vert"><span class="haut">−b ± √Δ</span><span class="bas">2a</span></span>
+        </div>
+        Si Δ = 0 : une seule solution&nbsp; x = <span class="frac-mini"><span class="haut">−b</span><span class="bas">2a</span></span>&nbsp; (le sommet !)
+      </div>
+    </div>
+  </div>
+
+  <div class="grille">
+    <div class="boite">
+      <div class="titre-boite t-bleu">4. LA MÉTHODE EN 4 ÉTAPES</div>
+      <div class="corps-boite">
+        <ol class="etapes">
+          <li><span class="num">1</span> Identifier a, b, c (avec leurs signes !)</li>
+          <li><span class="num">2</span> Calculer Δ = b² − 4ac</li>
+          <li><span class="num">3</span> Signe de Δ → 2, 1 ou 0 solution(s)</li>
+          <li><span class="num">4</span> Si Δ ≥ 0 :&nbsp; x = <span class="frac-mini"><span class="haut">−b ± √Δ</span><span class="bas">2a</span></span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="boite">
+      <div class="titre-boite t-orouge">5. LES CAS RAPIDES (sans Δ !)</div>
+      <div class="corps-boite">
+        <b>b = 0 :</b> isole x².&nbsp; 2x² − 18 = 0 → x² = 9<br>
+        → x = 3 <b>ou</b> x = −3 (ne pas oublier le −&nbsp;!)<br>
+        <b>c = 0 :</b> mets x en facteur (produit nul).<br>
+        3x² + 6x = 0 → 3x(x + 2) = 0 → x = 0 <b>ou</b> x = −2<br>
+        <em>x² = nombre négatif → aucune solution.</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="grille">
+    <div class="boite">
+      <div class="titre-boite t-rouge">6. EXEMPLE : x² − x − 6 = 0</div>
+      <div class="corps-boite">
+        a = 1, &nbsp;b = −1, &nbsp;c = −6<br>
+        Δ = (−1)² − 4×1×(−6) = 1 + 24 = 25 &gt; 0 → 2 solutions<br>
+        √Δ = √25 = 5<br>
+        x₁ = (1 − 5)/2 = −2&nbsp;&nbsp;&nbsp;&nbsp;x₂ = (1 + 5)/2 = 3<br>
+        <span class="verif">Vérif : 3² − 3 − 6 = 0 ✓</span>
+      </div>
+    </div>
+
+    <div class="boite">
+      <div class="titre-boite t-orouge">7. LES PIÈGES À ÉVITER</div>
+      <div class="corps-boite">
+        <ul style="margin:0;padding-left:16px;">
+          <li class="puce">b et c gardent leur signe :<br>dans 3x² − 5x + 2, b = −5 (pas 5 !)</li>
+          <li class="puce">2a au dénominateur : si a est négatif, 2a aussi !</li>
+          <li class="puce">x² = 4 a DEUX solutions : x = 2 et x = −2</li>
+          <li class="puce" style="margin-bottom:0">Problème concret : vérifie que la solution a un sens (une distance négative se rejette… en le disant).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="pied">À relire avec le cours interactif : chaque formule ci-dessus correspond à une étape que tu as manipulée avec les curseurs 🙂</p>
+
+  </div>
+</div>
+</body>
+</html>
