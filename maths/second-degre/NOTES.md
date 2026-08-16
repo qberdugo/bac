@@ -1,6 +1,8 @@
-# Passation — Cours interactif « équations du second degré »
+# Passation — Partie « Forme canonique et variations » (chapitre « Équations du second degré »)
 
 ## Contexte
+Ce dossier est la **première partie** du chapitre de maths « Équations du second degré » (hiérarchie du site : matière → chapitre → partie, voir `chapitres.js` à la racine). D'autres parties du même chapitre viendront s'ajouter dans leurs propres dossiers (discriminant et résolution, forme factorisée, signe du trinôme…) ; le contenu ci-dessous n'a pas vocation à être scindé.
+
 Cours interactif créé pour une élève entrant en première, bases fragiles en maths. Approche : concret d'abord (ballon de basket), concepts introduits progressivement, très graphique, tutoiement, aucun prérequis supposé (même x² est expliqué).
 
 ## Fichiers
@@ -21,8 +23,12 @@ cd maths/second-degre
   "file://$(pwd)/fiche-source.html"
 
 # régénérer l'aperçu PNG (haute résolution, ~1700x2400) depuis le PDF :
-qlmanage -t -s 2400 -o /tmp/qlout maths-second-degre-fiche.pdf
-cp /tmp/qlout/maths-second-degre-fiche.pdf.png fiche.png
+# (utiliser un dossier de sortie local : avec /tmp, qlmanage peut annoncer
+#  "produced one thumbnail" sans rien écrire)
+mkdir -p ../../.qlout
+qlmanage -t -s 2400 -o ../../.qlout maths-second-degre-fiche.pdf
+cp ../../.qlout/maths-second-degre-fiche.pdf.png fiche.png
+rm -rf ../../.qlout
 ```
 
 Attention au remplissage de la page A4 : le contenu doit occuper presque toute la hauteur de 297mm sans déborder sur une 2ᵈᵉ page (vérifier avec `mdls -name kMDItemNumberOfPages` après un `mdimport` pour forcer le rafraîchissement, Spotlight cache sinon l'ancienne valeur).
@@ -45,7 +51,7 @@ Attention au remplissage de la page A4 : le contenu doit occuper presque toute l
 - Étape 5 : cadre fixe assumé (pédagogique), dimensionné pour toute la course du slider.
 - Le ballon recalcule son cadre selon la force (le tir « fort » sortait de l'écran).
 
-## Idées de suite possibles
+## Idées de suite possibles (futures parties du chapitre)
 - Forme factorisée y = a(x − x₁)(x − x₂)
 - Signe du trinôme / tableau de signes
 - Exercices générés aléatoirement avec correction

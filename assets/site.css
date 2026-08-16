@@ -11,15 +11,18 @@ header p{margin:0 auto;max-width:640px;font-size:18px;opacity:.95;}
 .nav-site{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;font-size:15px;}
 .nav-site a{color:#fff;text-decoration:none;background:rgba(255,255,255,.16);border-radius:999px;padding:6px 16px;font-weight:600;}
 .nav-site a:hover{background:rgba(255,255,255,.3);}
+/* Fil d'Ariane des pages de partie : rappelle le chapitre au-dessus du titre */
+header .fil-chapitre{margin:0 0 8px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.85;}
 main{max-width:880px;margin:-28px auto 60px;padding:0 16px;}
 section{background:#fff;border-radius:18px;padding:28px 26px;margin-bottom:26px;box-shadow:0 6px 24px rgba(34,34,59,.08);}
 h2{margin:0 0 6px;font-size:24px;}
 .chip{display:inline-block;background:var(--bleu);color:#fff;border-radius:999px;padding:2px 14px;font-size:14px;font-weight:600;margin-bottom:8px;}
 
-/* Cartes de chapitres (accueil) */
-.chapitre{border:1px solid #e4e7f5;border-radius:14px;padding:20px 22px;margin-top:16px;}
-.chapitre h3{margin:0 0 6px;font-size:20px;}
-.chapitre p{margin:0 0 14px;font-size:15.5px;color:#4a4a68;}
+/* Accueil : hiérarchie matière (badge) → chapitre (titre) → parties (cartes) */
+.chapitre-titre{margin:16px 0 0;font-size:21px;}
+.partie{border:1px solid #e4e7f5;border-radius:14px;padding:20px 22px;margin-top:12px;}
+.partie h4{margin:0 0 6px;font-size:19px;}
+.partie p{margin:0 0 14px;font-size:15.5px;color:#4a4a68;}
 .boutons{display:flex;flex-wrap:wrap;gap:10px;}
 .btn{display:inline-block;text-decoration:none;text-align:center;border-radius:10px;padding:10px 20px;font-size:16px;font-weight:600;transition:transform .1s, box-shadow .2s;}
 .btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(67,97,238,.35);}

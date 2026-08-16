@@ -10,7 +10,7 @@
 
 <header>
   <h1>✨ Mes révisions</h1>
-  <p>Pour chaque chapitre : un cours interactif à manipuler, et une fiche de révision à garder sous la main (et à télécharger).</p>
+  <p>Chaque chapitre est découpé en parties. Pour chaque partie : un cours interactif à manipuler, et une fiche de révision à garder sous la main (et à télécharger).</p>
 </header>
 
 <main id="contenu">
@@ -26,22 +26,25 @@ const contenu = document.getElementById("contenu");
 MATIERES.forEach(matiere => {
   const section = document.createElement("section");
   const chips = `<span class="chip" style="background:${matiere.couleur};color:${matiere.texte || "#fff"}">${matiere.emoji} ${matiere.nom}</span>`;
-  const cartes = matiere.chapitres.map(ch => `
-    <div class="chapitre" style="border-left:6px solid ${matiere.couleur}">
-      <h3>${ch.emoji} ${ch.titre}</h3>
-      <p>${ch.description}</p>
+  const blocs = matiere.chapitres.map(chap => {
+    const cartes = chap.parties.map(pt => `
+    <div class="partie" style="border-left:6px solid ${matiere.couleur}">
+      <h4>${pt.emoji} ${pt.titre}</h4>
+      <p>${pt.description}</p>
       <div class="boutons">
-        <a class="btn btn-cours" href="${ch.dossier}/cours.html">▶️ Cours interactif</a>
-        <a class="btn btn-fiche" href="${ch.dossier}/fiche.html">📄 Fiche de révision</a>
-        <a class="btn btn-pdf" href="${ch.dossier}/${ch.pdf}" download>⬇️ PDF</a>
+        <a class="btn btn-cours" href="${pt.dossier}/cours.html">▶️ Cours interactif</a>
+        <a class="btn btn-fiche" href="${pt.dossier}/fiche.html">📄 Fiche de révision</a>
+        <a class="btn btn-pdf" href="${pt.dossier}/${pt.pdf}" download>⬇️ PDF</a>
       </div>
     </div>`).join("");
-  section.innerHTML = chips + cartes;
+    return `<h3 class="chapitre-titre">${chap.emoji} ${chap.titre}</h3>` + cartes;
+  }).join("");
+  section.innerHTML = chips + blocs;
   contenu.appendChild(section);
 });
 const aVenir = document.createElement("section");
 aVenir.innerHTML = `<span class="chip" style="background:#8a8aa8">🔜 À venir</span>
-  <p class="a-venir">D'autres chapitres de maths, et peut-être d'autres matières… La liste s'allonge au fil de l'année !</p>`;
+  <p class="a-venir">La suite du chapitre sur les équations du second degré (discriminant et résolution, forme factorisée, signe du trinôme…), et peut-être d'autres matières. La liste s'allonge au fil de l'année !</p>`;
 contenu.appendChild(aVenir);
 </script>
 </body>
