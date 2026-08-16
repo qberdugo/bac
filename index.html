@@ -25,9 +25,9 @@
 const contenu = document.getElementById("contenu");
 MATIERES.forEach(matiere => {
   const section = document.createElement("section");
-  const chips = `<span class="chip" style="background:${matiere.couleur}">${matiere.emoji} ${matiere.nom}</span>`;
+  const chips = `<span class="chip" style="background:${matiere.couleur};color:${matiere.texte || "#fff"}">${matiere.emoji} ${matiere.nom}</span>`;
   const cartes = matiere.chapitres.map(ch => `
-    <div class="chapitre">
+    <div class="chapitre" style="border-left:6px solid ${matiere.couleur}">
       <h3>${ch.emoji} ${ch.titre}</h3>
       <p>${ch.description}</p>
       <div class="boutons">

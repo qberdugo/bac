@@ -10,13 +10,17 @@
  *                                    ex. maths-second-degre-fiche.pdf)
  *  2. Ajoute une entrée dans le tableau "chapitres" de la matière ci-dessous,
  *     avec le champ "pdf" qui donne le nom exact de ce fichier PDF.
- * Pour ajouter une matière, ajoute un nouvel objet dans MATIERES.
+ * Pour ajouter une matière, ajoute un nouvel objet dans MATIERES avec :
+ *   - couleur : la couleur du code couleur par matière (ex. jaune pour maths)
+ *   - texte   : la couleur du texte du badge, pour rester lisible sur "couleur"
+ *               (mettre une couleur sombre si "couleur" est claire, sinon "#fff")
  */
 const MATIERES = [
   {
     nom: "Mathématiques",
     emoji: "📐",
-    couleur: "#4361ee",
+    couleur: "#FFC107",
+    texte: "#22223b",
     chapitres: [
       {
         titre: "Les équations du second degré",
