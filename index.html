@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mes révisions</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header>
+  <h1>✨ Mes révisions</h1>
+  <p>Pour chaque chapitre : un cours interactif à manipuler, et une fiche de révision à garder sous la main (et à télécharger).</p>
+</header>
+
+<main id="contenu">
+  <noscript><section><p>Active JavaScript pour voir la liste des chapitres.</p></section></noscript>
+</main>
+
+<footer>Fait avec ❤️ — de nouveaux chapitres arrivent au fil de l'année.</footer>
+
+<script src="chapitres.js"></script>
+<script>
+"use strict";
+const contenu = document.getElementById("contenu");
+MATIERES.forEach(matiere => {
+  const section = document.createElement("section");
+  const chips = `<span class="chip" style="background:${matiere.couleur}">${matiere.emoji} ${matiere.nom}</span>`;
+  const cartes = matiere.chapitres.map(ch => `
+    <div class="chapitre">
+      <h3>${ch.emoji} ${ch.titre}</h3>
+      <p>${ch.description}</p>
+      <div class="boutons">
+        <a class="btn btn-cours" href="${ch.dossier}/cours.html">▶️ Cours interactif</a>
+        <a class="btn btn-fiche" href="${ch.dossier}/fiche.html">📄 Fiche de révision</a>
+        <a class="btn btn-pdf" href="${ch.dossier}/fiche.pdf" download>⬇️ PDF</a>
+      </div>
+    </div>`).join("");
+  section.innerHTML = chips + cartes;
+  contenu.appendChild(section);
+});
+const aVenir = document.createElement("section");
+aVenir.innerHTML = `<span class="chip" style="background:#8a8aa8">🔜 À venir</span>
+  <p class="a-venir">D'autres chapitres de maths, et peut-être d'autres matières… La liste s'allonge au fil de l'année !</p>`;
+contenu.appendChild(aVenir);
+</script>
+</body>
+</html>

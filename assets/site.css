@@ -1,0 +1,34 @@
+/* Style commun du site de révisions — même palette que les cours interactifs */
+:root{
+  --bleu:#4361ee; --violet:#7209b7; --rose:#f72585; --vert:#2ec4b6;
+  --orange:#ff9f1c; --rouge:#e63946; --magenta:#b5179e; --fond:#f6f7fb; --encre:#22223b;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--encre);line-height:1.6;}
+header{background:linear-gradient(135deg,#4361ee,#7209b7 60%,#f72585);color:#fff;padding:44px 20px 52px;text-align:center;}
+header h1{margin:0 0 10px;font-size:clamp(26px,4.5vw,42px);}
+header p{margin:0 auto;max-width:640px;font-size:18px;opacity:.95;}
+.nav-site{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;font-size:15px;}
+.nav-site a{color:#fff;text-decoration:none;background:rgba(255,255,255,.16);border-radius:999px;padding:6px 16px;font-weight:600;}
+.nav-site a:hover{background:rgba(255,255,255,.3);}
+main{max-width:880px;margin:-28px auto 60px;padding:0 16px;}
+section{background:#fff;border-radius:18px;padding:28px 26px;margin-bottom:26px;box-shadow:0 6px 24px rgba(34,34,59,.08);}
+h2{margin:0 0 6px;font-size:24px;}
+.chip{display:inline-block;background:var(--bleu);color:#fff;border-radius:999px;padding:2px 14px;font-size:14px;font-weight:600;margin-bottom:8px;}
+
+/* Cartes de chapitres (accueil) */
+.chapitre{border:1px solid #e4e7f5;border-radius:14px;padding:20px 22px;margin-top:16px;}
+.chapitre h3{margin:0 0 6px;font-size:20px;}
+.chapitre p{margin:0 0 14px;font-size:15.5px;color:#4a4a68;}
+.boutons{display:flex;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;text-decoration:none;text-align:center;border-radius:10px;padding:10px 20px;font-size:16px;font-weight:600;transition:transform .1s, box-shadow .2s;}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(67,97,238,.35);}
+.btn-cours{background:var(--bleu);color:#fff;}
+.btn-fiche{background:#e9ecf8;color:var(--bleu);}
+.btn-pdf{background:#e9fbf8;color:#0a7c72;}
+.a-venir{color:#8a8aa8;font-style:italic;font-size:15px;margin-top:14px;}
+
+/* Page fiche */
+.fiche-img{width:100%;height:auto;display:block;border:1px solid #e4e7f5;border-radius:12px;box-shadow:0 6px 24px rgba(34,34,59,.10);}
+
+footer{text-align:center;color:#8a8aa8;font-size:14px;padding:0 16px 40px;}
