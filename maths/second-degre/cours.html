@@ -24,7 +24,7 @@
   section{background:#fff;border-radius:18px;padding:28px 26px;margin-bottom:26px;box-shadow:0 6px 24px rgba(34,34,59,.08);}
   h2{margin:0 0 6px;font-size:24px;}
   .chip{display:inline-block;background:var(--bleu);color:#fff;border-radius:999px;padding:2px 14px;font-size:14px;font-weight:600;margin-bottom:8px;}
-  .s2 .chip{background:var(--vert);} .s3 .chip{background:var(--orange);} .s3b .chip{background:var(--magenta);} .s4 .chip{background:var(--rose);}
+  .s2 .chip{background:var(--vert);} .s3 .chip{background:var(--orange);} .s3b .chip{background:var(--magenta);} .s3c .chip{background:#3a0ca3;} .s4 .chip{background:var(--rose);}
   .s5 .chip{background:var(--violet);} .s6 .chip{background:var(--rouge);} .s7 .chip{background:#0a9396;} .s8 .chip{background:#6a994e;}
   canvas{width:100%;height:auto;background:#fbfcff;border:1px solid #e4e7f5;border-radius:12px;display:block;touch-action:none;}
   .controls{display:flex;flex-wrap:wrap;gap:14px 26px;margin:14px 0 6px;align-items:center;}
@@ -67,6 +67,21 @@
   .lecture{font-size:17px;}
   code{background:#f0f1f8;border-radius:6px;padding:1px 6px;font-size:.95em;}
   .valeur-dyn{font-family:ui-monospace,Consolas,monospace;font-weight:700;}
+  /* Tableaux de variations (étape 5) */
+  .tabvars{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:14px 0;}
+  .tabvar{border:2px solid #e4e7f5;border-radius:12px;padding:12px 14px;transition:border-color .2s, box-shadow .2s, opacity .2s;}
+  .tabvar h3{margin:0 0 8px;font-size:16px;text-align:center;}
+  .tabvar.actif{border-color:#3a0ca3;box-shadow:0 4px 14px rgba(58,12,163,.18);}
+  .tabvar.efface{opacity:.45;}
+  .tabvar table{width:100%;border-collapse:collapse;font-family:Georgia,"Times New Roman",serif;font-size:17px;}
+  .tabvar th,.tabvar td{border:1.5px solid var(--encre);padding:4px 8px;text-align:center;}
+  .tabvar th{font-style:italic;width:48px;background:#f4f1fb;}
+  .tabvar .tv-flex{display:flex;justify-content:space-around;align-items:stretch;}
+  .tabvar .tv-var .tv-flex{height:64px;}
+  .tabvar .tv-flex .fl{font-size:28px;line-height:1;}
+  .tabvar .tv-flex .h{align-self:flex-start;} .tabvar .tv-flex .b{align-self:flex-end;}
+  .tabvar .tv-flex .val{font-size:19px;font-weight:700;color:#3a0ca3;}
+  .tabvar .tv-legende{margin:8px 0 0;font-size:14.5px;color:#4a4a68;text-align:center;}
 </style>
 </head>
 <body>
@@ -151,9 +166,43 @@
   <div class="attention">🔎 <b>Deux écritures, une seule courbe.</b> Regarde la ligne au-dessus du graphique : la forme canonique et la forme ax² + bx + c de l'étape 3 changent ensemble, car c'est la même parabole. En développant a(x − α)² + β on retombe sur ax² + bx + c. Et pour retrouver le sommet à partir de a, b, c, il y a une formule bien pratique : <b>α = −b / 2a</b> (puis β se calcule en remplaçant x par α).</div>
 </section>
 
+<!-- ================= SECTION 3ter : TABLEAU DE VARIATIONS ================= -->
+<section class="s3c" id="variations">
+  <span class="chip">Étape 5</span>
+  <h2>Le tableau de variations 📉📈</h2>
+  <p class="lecture">Reprends la parabole de l'étape 4 et lis-la <b>de gauche à droite</b>, comme une phrase. Si a &gt; 0, la courbe <b>descend</b> jusqu'au sommet, puis <b>remonte</b> : on dit que la fonction est <b>décroissante</b> avant α, puis <b>croissante</b> après. Les matheux résument ça dans un petit dessin très pratique, le <b>tableau de variations</b> : une flèche qui descend, la valeur du creux (ou du pic), une flèche qui monte.</p>
+  <div class="tabvars">
+    <div class="tabvar" id="tabvarPos">
+      <h3>Si a &gt; 0 (elle sourit 😊)</h3>
+      <table>
+        <tr><th>x</th><td><div class="tv-flex"><span>−∞</span><span class="val">α</span><span>+∞</span></div></td></tr>
+        <tr class="tv-var"><th>y</th><td><div class="tv-flex"><span class="fl h">↘</span><span class="val b">β</span><span class="fl h">↗</span></div></td></tr>
+      </table>
+      <p class="tv-legende">y <b>décroît</b> jusqu'au <b>minimum</b> β (atteint en x = α), puis <b>croît</b>.</p>
+    </div>
+    <div class="tabvar" id="tabvarNeg">
+      <h3>Si a &lt; 0 (elle boude ☹️)</h3>
+      <table>
+        <tr><th>x</th><td><div class="tv-flex"><span>−∞</span><span class="val">α</span><span>+∞</span></div></td></tr>
+        <tr class="tv-var"><th>y</th><td><div class="tv-flex"><span class="fl b">↗</span><span class="val h">β</span><span class="fl b">↘</span></div></td></tr>
+      </table>
+      <p class="tv-legende">y <b>croît</b> jusqu'au <b>maximum</b> β (atteint en x = α), puis <b>décroît</b>.</p>
+    </div>
+  </div>
+  <p class="lecture">Bouge le curseur pour changer le signe de a, et vois quel tableau décrit la parabole :</p>
+  <div class="controls">
+    <div class="ctrl" style="max-width:420px">
+      <label>a <span id="valAVar">1</span></label>
+      <input type="range" id="sVar" min="-3" max="3" step="0.1" value="1">
+    </div>
+  </div>
+  <div id="commentVar" class="info"></div>
+  <div class="astuce">💡 <b>Pour construire le tableau en exercice :</b> 1) calcule α = −b / 2a ; 2) calcule β en remplaçant x par α ; 3) regarde le signe de a : positif → flèches ↘ puis ↗ (β est un minimum), négatif → flèches ↗ puis ↘ (β est un maximum).</div>
+</section>
+
 <!-- ================= SECTION 4 : LES SOLUTIONS ================= -->
 <section class="s4">
-  <span class="chip">Étape 5</span>
+  <span class="chip">Étape 6</span>
   <h2>Résoudre = trouver où la courbe traverse le sol</h2>
   <p class="lecture">Résoudre l'équation <code>ax² + bx + c = 0</code>, c'est chercher les valeurs de x pour lesquelles <b>y vaut 0</b>. Sur le dessin, c'est ultra concret : ce sont les endroits où <b>la parabole coupe l'axe horizontal</b> (le « sol »). Fais glisser la parabole de haut en bas avec le curseur :</p>
   <canvas id="cvSol" height="360"></canvas>
@@ -169,7 +218,7 @@
 
 <!-- ================= SECTION 5 : LE DISCRIMINANT ================= -->
 <section class="s5">
-  <span class="chip">Étape 6</span>
+  <span class="chip">Étape 7</span>
   <h2>Le discriminant Δ : un détecteur de solutions</h2>
   <p class="lecture">Question : peut-on savoir <b>sans dessiner</b> combien il y a de solutions ? Oui ! Il existe un « détecteur » qui se calcule avec a, b et c. On l'appelle le <b>discriminant</b> et on le note <b>Δ</b> (la lettre grecque « delta ») :</p>
   <div class="formule">Δ = b² − 4ac</div>
@@ -191,7 +240,7 @@
 
 <!-- ================= SECTION 6 : LA FORMULE ================= -->
 <section class="s6">
-  <span class="chip">Étape 7</span>
+  <span class="chip">Étape 8</span>
   <h2>La formule qui donne les solutions</h2>
   <p class="lecture">Le discriminant dit <b>combien</b> il y a de solutions. Mais pour savoir <b>lesquelles</b>, il existe une formule magique. Quand Δ ≥ 0, les solutions sont :</p>
   <div class="formule">
@@ -215,7 +264,7 @@
 
 <!-- ================= SECTION 7 : LE SOLVEUR ================= -->
 <section class="s7">
-  <span class="chip">Étape 8</span>
+  <span class="chip">Étape 9</span>
   <h2>À toi de jouer : le solveur pas à pas</h2>
   <p class="lecture">Choisis tes propres valeurs de a, b et c, et regarde la résolution complète, avec le graphique pour vérifier. Essaie par exemple : <button class="secondaire exemple-btn" data-abc="1,-1,-6">a=1, b=−1, c=−6</button> <button class="secondaire exemple-btn" data-abc="1,-4,4">a=1, b=−4, c=4</button> <button class="secondaire exemple-btn" data-abc="2,1,3">a=2, b=1, c=3</button></p>
   <div class="grille-inputs">
@@ -230,7 +279,7 @@
 
 <!-- ================= SECTION 8 : QUIZ ================= -->
 <section class="s8">
-  <span class="chip">Étape 9</span>
+  <span class="chip">Étape 10</span>
   <h2>Petit quiz pour vérifier 🎓</h2>
 
   <div class="quiz-q" data-bonne="1">
@@ -733,6 +782,32 @@ function cadreParabole(a, b, c, inclureZero){
       resoudre();
     });
   });
+})();
+
+/* ================= 3ter. TABLEAU DE VARIATIONS ================= */
+(function(){
+  const sVar = document.getElementById("sVar");
+  const valAVar = document.getElementById("valAVar");
+  const commentVar = document.getElementById("commentVar");
+  const tabPos = document.getElementById("tabvarPos");
+  const tabNeg = document.getElementById("tabvarNeg");
+  function majVar(){
+    const a = parseFloat(sVar.value);
+    valAVar.textContent = String(a).replace(".", ",");
+    tabPos.classList.remove("actif","efface");
+    tabNeg.classList.remove("actif","efface");
+    if(a > 0){
+      tabPos.classList.add("actif"); tabNeg.classList.add("efface");
+      commentVar.innerHTML = "a &gt; 0 → la parabole <b>sourit</b> : y <b>descend puis remonte</b>. C'est le tableau de gauche, avec un <b>minimum</b> β au sommet.";
+    } else if(a < 0){
+      tabNeg.classList.add("actif"); tabPos.classList.add("efface");
+      commentVar.innerHTML = "a &lt; 0 → la parabole <b>boude</b> : y <b>monte puis redescend</b>. C'est le tableau de droite, avec un <b>maximum</b> β au sommet.";
+    } else {
+      commentVar.innerHTML = "⚠️ a = 0 : plus de x², plus de parabole… et plus de tableau ! Remets un a différent de 0.";
+    }
+  }
+  sVar.addEventListener("input", majVar);
+  majVar();
 })();
 
 /* ================= 8. QUIZ ================= */

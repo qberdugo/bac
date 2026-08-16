@@ -33,16 +33,17 @@ rm -rf ../../.qlout
 
 Attention au remplissage de la page A4 : le contenu doit occuper presque toute la hauteur de 297mm sans déborder sur une 2ᵈᵉ page (vérifier avec `mdls -name kMDItemNumberOfPages` après un `mdimport` pour forcer le rafraîchissement, Spotlight cache sinon l'ancienne valeur).
 
-## Structure du cours (9 étapes)
+## Structure du cours (10 étapes)
 1. Ballon de basket animé (trajectoire = parabole, question : où retombe-t-il ?)
 2. y = x² avec curseur (deux opposés → même carré)
 3. Famille y = ax² + bx + c (3 sliders, rôles de a, b, c)
 4. Forme canonique y = a(x − α)² + β (sliders a, α, β ; sommet ; équivalence affichée avec la forme développée ; α = −b/2a)
-5. Résoudre = intersections avec l'axe horizontal (slider c, cadre volontairement FIXE pour voir la courbe bouger)
-6. Discriminant Δ = b² − 4ac (badge coloré 2/1/0 solutions)
-7. Formule x = (−b ± √Δ)/2a, exemple x² − x − 6 = 0 déroulé pas à pas
-8. Solveur libre (inputs a, b, c → résolution détaillée + graphe)
-9. Quiz (5 QCM avec explications) + récap en cartes
+5. Tableau de variations (deux tableaux a > 0 / a < 0 en HTML/CSS, slider a qui surligne le tableau correspondant ; vocabulaire croissante/décroissante, minimum/maximum)
+6. Résoudre = intersections avec l'axe horizontal (slider c, cadre volontairement FIXE pour voir la courbe bouger)
+7. Discriminant Δ = b² − 4ac (badge coloré 2/1/0 solutions)
+8. Formule x = (−b ± √Δ)/2a, exemple x² − x − 6 = 0 déroulé pas à pas
+9. Solveur libre (inputs a, b, c → résolution détaillée + graphe)
+10. Quiz (5 QCM avec explications) + récap en cartes
 
 ## Points techniques importants (bugs déjà corrigés — ne pas réintroduire)
 - **Retina/dpr** : `canvas.height = h*dpr` réécrit l'attribut `height`. La hauteur CSS est mémorisée une seule fois (`cssH`) dans `creerPlot` et jamais relue depuis l'attribut. Sinon la moitié basse des graphes est coupée sur écran Retina.

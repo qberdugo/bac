@@ -40,7 +40,7 @@ const MATIERES = [
             titre: "Forme canonique et variations",
             emoji: "🏀",
             description:
-              "Paraboles, forme canonique, discriminant et la fameuse formule — en partant d'un ballon de basket. Curseurs, solveur et quiz inclus.",
+              "Paraboles, forme canonique, tableau de variations, discriminant et la fameuse formule — en partant d'un ballon de basket. Curseurs, solveur et quiz inclus.",
             dossier: "maths/second-degre",
             pdf: "maths-second-degre-fiche.pdf",
           },

@@ -13,15 +13,15 @@
   html,body{margin:0;padding:0;}
   body{font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--encre);background:var(--fond);width:210mm;min-height:297mm;}
   .page{width:210mm;min-height:297mm;background:var(--fond);}
-  .entete{background:linear-gradient(135deg,#F2A900,#FF6F3C 55%,#f72585);color:#fff;padding:20px 34px 22px 15mm;position:relative;}
+  .entete{background:linear-gradient(135deg,#F2A900,#FF6F3C 55%,#f72585);color:#fff;padding:15px 34px 16px 15mm;position:relative;}
   .entete h1{margin:0 0 5px;font-size:29px;letter-spacing:.3px;}
   .entete p{margin:0;font-size:15px;}
-  .contenu{padding:8mm 10mm 6mm;}
+  .contenu{padding:6mm 10mm 3mm;}
   .grille{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .grille.pleine{grid-template-columns:1fr;}
-  .boite{background:#fff;border-radius:9px;overflow:hidden;border:1px solid #e6e6f0;margin-bottom:10px;}
+  .boite{background:#fff;border-radius:9px;overflow:hidden;border:1px solid #e6e6f0;margin-bottom:8px;}
   .titre-boite{color:#fff;font-weight:700;font-size:15px;padding:8px 16px;letter-spacing:.2px;}
-  .corps-boite{padding:13px 18px 15px;font-size:14px;line-height:1.45;}
+  .corps-boite{padding:10px 18px 11px;font-size:14px;line-height:1.45;}
   .t-orange{background:linear-gradient(90deg,#ff9f1c,#ff7a1c);}
   .t-magenta{background:linear-gradient(90deg,#b5179e,#7209b7);}
   .t-violet{background:linear-gradient(90deg,#7209b7,#560a86);}
@@ -29,6 +29,19 @@
   .t-bleu{background:linear-gradient(90deg,#4361ee,#3651d4);}
   .t-rouge{background:linear-gradient(90deg,#e63946,#c1121f);}
   .t-orouge{background:linear-gradient(90deg,#ff9f1c,#e63946);}
+  .t-indigo{background:linear-gradient(90deg,#3a0ca3,#4361ee);}
+  /* Mini tableaux de variations (boîte 3) */
+  .tv-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px;}
+  .tv-cas{font-weight:700;text-align:center;margin-bottom:3px;font-size:13px;}
+  .tabvar-mini{width:100%;border-collapse:collapse;font-family:Georgia,"Times New Roman",serif;font-size:11.5px;}
+  .tabvar-mini th,.tabvar-mini td{border:1px solid var(--encre);padding:1px 4px;text-align:center;}
+  .tabvar-mini th{font-style:italic;width:15px;background:#f4f1fb;}
+  .tv-fx{display:flex;justify-content:space-around;align-items:stretch;}
+  .tv-var .tv-fx{height:30px;}
+  .tv-fx .fl{font-size:16px;line-height:1;}
+  .tv-fx .h{align-self:flex-start;} .tv-fx .b{align-self:flex-end;}
+  .tv-fx .val{font-weight:700;color:#3a0ca3;}
+  .tv-note{text-align:center;font-size:11px;color:#555;margin-top:2px;}
   .formule-grande{font-family:Georgia,"Times New Roman",serif;font-size:23px;font-weight:700;text-align:center;margin:8px 0;}
   .formule-violet{color:var(--violet);} .formule-magenta{color:var(--magenta);}
   .frac{display:inline-block;vertical-align:middle;text-align:center;margin:0 6px;}
@@ -64,16 +77,42 @@
   <div class="contenu">
 
   <div class="grille">
-    <div class="boite">
-      <div class="titre-boite t-orange">1. LA COURBE : UNE PARABOLE</div>
-      <div class="corps-boite">
-        y = ax² + bx + c se dessine en parabole.<br>
-        a &gt; 0 : elle « sourit » 🙂
-        <svg class="doodle" width="40" height="18" viewBox="0 0 40 18"><path d="M2,4 Q20,20 38,4" fill="none" stroke="#ff9f1c" stroke-width="2.4" stroke-linecap="round"/></svg><br>
-        a &lt; 0 : elle « boude » 🙁
-        <svg class="doodle" width="40" height="18" viewBox="0 0 40 18"><path d="M2,14 Q20,-2 38,14" fill="none" stroke="#ff9f1c" stroke-width="2.4" stroke-linecap="round"/></svg><br>
-        c = hauteur de la courbe quand x = 0.<br>
-        <em>Si a = 0 : plus de x², plus de parabole !</em>
+    <div>
+      <div class="boite">
+        <div class="titre-boite t-orange">1. LA COURBE : UNE PARABOLE</div>
+        <div class="corps-boite">
+          y = ax² + bx + c se dessine en parabole.<br>
+          a &gt; 0 : elle « sourit » 🙂
+          <svg class="doodle" width="40" height="18" viewBox="0 0 40 18"><path d="M2,4 Q20,20 38,4" fill="none" stroke="#ff9f1c" stroke-width="2.4" stroke-linecap="round"/></svg><br>
+          a &lt; 0 : elle « boude » 🙁
+          <svg class="doodle" width="40" height="18" viewBox="0 0 40 18"><path d="M2,14 Q20,-2 38,14" fill="none" stroke="#ff9f1c" stroke-width="2.4" stroke-linecap="round"/></svg><br>
+          c = hauteur de la courbe quand x = 0.<br>
+          <em>Si a = 0 : plus de x², plus de parabole !</em>
+        </div>
+      </div>
+
+      <div class="boite">
+        <div class="titre-boite t-indigo">3. LES VARIATIONS</div>
+        <div class="corps-boite">
+          <div class="tv-duo">
+            <div>
+              <div class="tv-cas">a &gt; 0 🙂</div>
+              <table class="tabvar-mini">
+                <tr><th>x</th><td><div class="tv-fx"><span>−∞</span><span class="val">α</span><span>+∞</span></div></td></tr>
+                <tr class="tv-var"><th>y</th><td><div class="tv-fx"><span class="fl h">↘</span><span class="val b">β</span><span class="fl h">↗</span></div></td></tr>
+              </table>
+              <div class="tv-note"><b>minimum</b> β en x = α</div>
+            </div>
+            <div>
+              <div class="tv-cas">a &lt; 0 🙁</div>
+              <table class="tabvar-mini">
+                <tr><th>x</th><td><div class="tv-fx"><span>−∞</span><span class="val">α</span><span>+∞</span></div></td></tr>
+                <tr class="tv-var"><th>y</th><td><div class="tv-fx"><span class="fl b">↗</span><span class="val h">β</span><span class="fl b">↘</span></div></td></tr>
+              </table>
+              <div class="tv-note"><b>maximum</b> β en x = α</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -106,7 +145,7 @@
 
   <div class="grille pleine">
     <div class="boite">
-      <div class="titre-boite t-violet">3. LE DISCRIMINANT : LE DÉTECTEUR DE SOLUTIONS</div>
+      <div class="titre-boite t-violet">4. LE DISCRIMINANT : LE DÉTECTEUR DE SOLUTIONS</div>
       <div class="corps-boite">
         <span class="formule-grande formule-violet" style="display:inline-block">Δ = b² − 4ac</span>
         &nbsp;&nbsp;Son signe dit combien de fois la parabole traverse l'axe horizontal :
@@ -133,7 +172,7 @@
 
   <div class="grille">
     <div class="boite">
-      <div class="titre-boite t-vert">4. LES SOLUTIONS (si Δ ≥ 0)</div>
+      <div class="titre-boite t-vert">5. LES SOLUTIONS (si Δ ≥ 0)</div>
       <div class="corps-boite">
         <div class="formule-grande" style="color:#1a9e92">
           x&nbsp;=&nbsp;<span class="frac vert"><span class="haut">−b ± √Δ</span><span class="bas">2a</span></span>
@@ -143,7 +182,7 @@
     </div>
 
     <div class="boite">
-      <div class="titre-boite t-bleu">5. LA MÉTHODE EN 4 ÉTAPES</div>
+      <div class="titre-boite t-bleu">6. LA MÉTHODE EN 4 ÉTAPES</div>
       <div class="corps-boite">
         <ol class="etapes">
           <li><span class="num">1</span> Identifier a, b, c (AVEC leurs signes !)</li>
@@ -157,7 +196,7 @@
 
   <div class="grille">
     <div class="boite">
-      <div class="titre-boite t-rouge">6. EXEMPLE : x² − x − 6 = 0</div>
+      <div class="titre-boite t-rouge">7. EXEMPLE : x² − x − 6 = 0</div>
       <div class="corps-boite">
         a = 1, &nbsp;b = −1, &nbsp;c = −6<br>
         Δ = (−1)² − 4×1×(−6) = 1 + 24 = 25 &gt; 0 → 2 solutions<br>
@@ -168,7 +207,7 @@
     </div>
 
     <div class="boite">
-      <div class="titre-boite t-orouge">7. LES PIÈGES À ÉVITER</div>
+      <div class="titre-boite t-orouge">8. LES PIÈGES À ÉVITER</div>
       <div class="corps-boite">
         <ul style="margin:0;padding-left:16px;">
           <li class="puce">b et c gardent leur signe :<br>dans 3x² − 5x + 2, b = −5 (pas 5 !)</li>
