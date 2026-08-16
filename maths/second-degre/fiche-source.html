@@ -37,6 +37,9 @@
   .frac .bas{display:block;padding:2px 8px 0;}
   .frac.vert .haut{border-color:#1a9e92;color:#1a9e92;}
   .frac.vert .bas{color:#1a9e92;}
+  .frac-mini{display:inline-block;vertical-align:middle;text-align:center;margin:0 3px;font-size:.95em;line-height:1.1;}
+  .frac-mini .haut{display:block;border-bottom:1.5px solid currentColor;padding:0 4px 1px;}
+  .frac-mini .bas{display:block;padding:1px 4px 0;}
   svg.doodle{vertical-align:middle;margin-left:6px;}
   .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:8px;}
   .three .carte{background:#f8f9fe;border-radius:8px;padding:10px 8px 8px;text-align:center;}
@@ -84,7 +87,7 @@
         </div>
         Le sommet se lit directement : (α ; β).<br>
         Pour le retrouver depuis a, b, c :<br>
-        <b style="color:var(--magenta)">α = −b / 2a&nbsp;&nbsp;&nbsp;puis&nbsp;&nbsp;&nbsp;β = y quand x = α.</b>
+        <b style="color:var(--magenta)">α = <span class="frac-mini"><span class="haut">−b</span><span class="bas">2a</span></span>&nbsp;&nbsp;&nbsp;puis&nbsp;&nbsp;&nbsp;β = y quand x = α.</b>
       </div>
     </div>
   </div>
@@ -98,17 +101,17 @@
         <div class="three">
           <div class="carte">
             <b style="color:#1a9e92">Δ &gt; 0</b>
-            <svg width="52" height="24" viewBox="0 0 52 24"><path d="M4,4 Q26,26 48,4" fill="none" stroke="#1a9e92" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="15" x2="52" y2="15" stroke="#ccc" stroke-width="1"/></svg>
+            <svg width="52" height="24" viewBox="0 0 52 24"><line x1="2" y1="15" x2="50" y2="15" stroke="#ccc" stroke-width="1"/><path d="M4,4 Q26,36 48,4" fill="none" stroke="#1a9e92" stroke-width="2.4" stroke-linecap="round"/><circle cx="13.7" cy="15" r="2.1" fill="#1a9e92"/><circle cx="38.3" cy="15" r="2.1" fill="#1a9e92"/></svg>
             <div class="sol">2 solutions</div>
           </div>
           <div class="carte">
             <b style="color:#ff9f1c">Δ = 0</b>
-            <svg width="52" height="24" viewBox="0 0 52 24"><path d="M4,15 Q26,0 48,15" fill="none" stroke="#ff9f1c" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="15" x2="52" y2="15" stroke="#ccc" stroke-width="1"/></svg>
+            <svg width="52" height="24" viewBox="0 0 52 24"><line x1="2" y1="15" x2="50" y2="15" stroke="#ccc" stroke-width="1"/><path d="M4,4 Q26,26 48,4" fill="none" stroke="#ff9f1c" stroke-width="2.4" stroke-linecap="round"/><circle cx="26" cy="15" r="2.3" fill="#ff9f1c"/></svg>
             <div class="sol">1 solution</div>
           </div>
           <div class="carte">
             <b style="color:#e63946">Δ &lt; 0</b>
-            <svg width="52" height="24" viewBox="0 0 52 24"><path d="M4,20 Q26,-4 48,20" fill="none" stroke="#e63946" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="15" x2="52" y2="15" stroke="#ccc" stroke-width="1"/></svg>
+            <svg width="52" height="24" viewBox="0 0 52 24"><line x1="2" y1="15" x2="50" y2="15" stroke="#ccc" stroke-width="1"/><path d="M4,4 Q26,14 48,4" fill="none" stroke="#e63946" stroke-width="2.4" stroke-linecap="round"/></svg>
             <div class="sol">0 solution</div>
           </div>
         </div>
@@ -123,7 +126,7 @@
         <div class="formule-grande" style="color:#1a9e92">
           x&nbsp;=&nbsp;<span class="frac vert"><span class="haut">−b ± √Δ</span><span class="bas">2a</span></span>
         </div>
-        Si Δ = 0 : une seule solution&nbsp; x = −b / 2a&nbsp; (le sommet !)
+        Si Δ = 0 : une seule solution&nbsp; x = <span class="frac-mini"><span class="haut">−b</span><span class="bas">2a</span></span>&nbsp; (le sommet !)
       </div>
     </div>
 
@@ -134,7 +137,7 @@
           <li><span class="num">1</span> Identifier a, b, c (AVEC leurs signes !)</li>
           <li><span class="num">2</span> Calculer Δ = b² − 4ac</li>
           <li><span class="num">3</span> Regarder le signe de Δ → 2, 1 ou 0 solution(s)</li>
-          <li><span class="num">4</span> Si Δ ≥ 0, appliquer la formule&nbsp; x = (−b ± √Δ) / 2a</li>
+          <li><span class="num">4</span> Si Δ ≥ 0, appliquer la formule&nbsp; x = <span class="frac-mini"><span class="haut">−b ± √Δ</span><span class="bas">2a</span></span></li>
         </ol>
       </div>
     </div>
